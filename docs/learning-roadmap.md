@@ -1,6 +1,6 @@
 # 🗺️ Lernfahrplan
 
-## Der Pfad durch Stufe 0–4 (der aktuelle Umfang dieser Akademie)
+## Der Pfad durch alle Stufen 0–9
 
 ```mermaid
 flowchart LR
@@ -21,15 +21,15 @@ flowchart LR
 | **3 – LangChain-Fundamente** | Chat-Modelle, Prompt-Templates, Runnable-Schnittstelle, Chains, Output-Parser, strukturierte Ausgaben (Pydantic), Fehlerbehandlung | Stufe 2 | Content-Assistant |
 | **4 – RAG & Wissen** | Dokumente, Loader, Text-Splitting/Chunking, Embeddings, Vektor-Datenbanken (Chroma), Similarity Search, Retrieval-Chains, Halluzinationen | Stufe 3 | Dokumenten-QA-Assistent |
 
-## Die Vision: Stufe 5–9 (in Arbeit)
+## Stufen 5–9 (alle ausgebaut)
 
-| Stufe | Thema | Warum danach? |
+| Stufe | Ordner | Meilenstein |
 |---|---|---|
-| **5 – LangGraph-Fundamente** | Graphen, State, Nodes, Edges, konditionales Routing, Loops | Ketten (Chains) sind gerade Linien; echte Workflows haben Verzweigungen und Schleifen |
-| **6 – KI-Agenten** | Tools, Tool-Calling, Agent-Loops, Memory, Checkpointing, Human-in-the-Loop | Ein Agent *entscheidet selbst*, welche Schritte nötig sind |
-| **7 – Fortgeschrittenes LangGraph** | Supervisor, Subgraphs, Parallelität, Persistenz, Streaming, Fehlertoleranz | Echte Systeme verteilen Arbeit auf mehrere Agenten |
-| **8 – Echte Projekte** | Wissens-Assistent, Research-Assistant, Business-Assistent, autonomer Workflow | Der Transfer in die Praxis |
-| **9 – Produktion** | Testing, Evaluierung, LangSmith, Sicherheit, Kosten, Docker | Von „läuft bei mir" zu „läuft zuverlässig" |
+| **5 – LangGraph-Fundamente** | `05-langgraph-fundamentals/` | eigener Graph mit Routing + Loop |
+| **6 – KI-Agenten** | `06-ai-agents/` | Agent mit Tools, Memory, Freigabe |
+| **7 – Fortgeschrittenes LangGraph** | `07-advanced-langgraph/` | Supervisor-Multi-Agent-System |
+| **8 – Echte Projekte** | `08-real-world-projects/` | 4 vollständige Anwendungen |
+| **9 – Produktion** | `09-production/` | getestete, dockerisierte Abschluss-Challenge |
 
 ## Wie viel Zeit brauche ich?
 
@@ -40,5 +40,6 @@ Erfahrungswert für Anfänger:innen mit 30–60 Minuten pro Tag:
 - Stufe 2: ~1 Woche
 - Stufe 3: ~2 Wochen
 - Stufe 4: ~2 Wochen
+- Stufen 5–9: ~6–8 Wochen
 
 Nimm dir die Zeit. **Verstehen schlägt Tempo.**

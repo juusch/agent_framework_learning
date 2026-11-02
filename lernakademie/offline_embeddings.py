@@ -27,7 +27,7 @@ from lernakademie.config import is_offline_mode
 KEYWORDS: List[str] = [
     "urlaub", "gehalt", "home-office", "homeoffice", "arbeitszeit",
     "kuendigung", "probezeit", "ueberstunden",
-    "passwort", "vpn", "laptop", "drucker", "software", "internet",
+    "passwort", "passwoerter", "vpn", "laptop", "drucker", "software", "internet",
     "termin", "meeting", "e-mail", "urlaubsantrag",
     "python", "ki", "api",
 ]

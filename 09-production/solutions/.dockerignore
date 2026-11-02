@@ -1,0 +1,22 @@
+# Geheimnisse und lokale Artefakte NIEMALS ins Image kopieren
+.env
+*.env
+!.env.example
+
+# Virtuelle Umgebung & Caches
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+
+# Vektor-DBs (werden im Container neu aufgebaut)
+vector_store/
+
+# Git & IDE
+.git/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

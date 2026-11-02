@@ -27,8 +27,13 @@ lernakademie/
 ├── 01-python-fundamentals/
 ├── 02-understanding-llms/
 ├── 03-langchain-fundamentals/
-└── 04-rag-and-knowledge/
-    └── data/              # Uebungsdokumente (frei erfunden)
+├── 04-rag-and-knowledge/
+│   └── data/              # Uebungsdokumente (frei erfunden)
+├── 05-langgraph-fundamentals/
+├── 06-ai-agents/
+├── 07-advanced-langgraph/
+├── 08-real-world-projects/   # 4 Projekte in Meilensteinen
+└── 09-production/            # Tests, Logging, Docker, Abschluss-Challenge
 ```
 
 ## Das Hilfs-Paket `lernakademie/`
@@ -53,6 +58,6 @@ Damit jede Loesung mit **und ohne** Mistral-API-Key laeuft, gibt es einen zentra
 
 Wir pinnen Hauptversionen (`langchain>=1.0,<2.0` u.s.w.), weil das LangChain-Ökosystem sich schnell bewegt. Upgrades werden dokumentiert, indem man die Range in `requirements.txt` anpasst und `pytest` laufen laesst.
 
-## Geplante Erweiterungen (Stufen 5–9)
+## Stufen 5–9 (implementiert)
 
-Neue Stufenordner (`05-langgraph-fundamentals/` … `09-production/`) folgen exakt demselben Muster (README + tasks + solutions + examples). LangGraph-bezogene Aufgaben erhalten zusaetzlich einen `diagrams/`-Ordner mit Mermaid-Diagrammen, die der Code- erklaerung vorausgehen.
+Die Stufenordner `05` bis `09` folgen exakt demselben Muster (README + tasks + solutions). LangGraph-bezogene Aufgaben enthaalten Mermaid-Diagramme direkt in den Task-Dateien. Der Mock (`lernakademie/mock_llm.py`) simuliert seit Stufe 6 auch Tool-Calling (bind_tools, tool_calls, finale Antwort nach Tool-Ergebnis), sodass Agenten-Loops, Checkpointer-Dialoge und Freigaben komplett offline lauffaehig und in CI getestet sind.

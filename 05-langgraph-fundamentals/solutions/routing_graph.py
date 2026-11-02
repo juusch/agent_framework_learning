@@ -22,7 +22,7 @@ def klassifizieren(state: TicketZustand) -> dict:
     text = state["eingabe"].lower()
     if "rechnung" in text or "betrag" in text:
         kategorie = "rechnung"
-    elif any(wort in text for wort in ("funktioniert", "fehler", "absturz")):
+    elif any(wort in text for wort in ("funktioniert", "fehler", "absturz", "stuerzt")):
         kategorie = "technisch"
     else:
         kategorie = "allgemein"

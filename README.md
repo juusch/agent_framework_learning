@@ -28,9 +28,12 @@ Du bist hier genau richtig, wenn du:
 | 1 | [`01-python-fundamentals/`](01-python-fundamentals/) | Python-Grundlagen, venv, API-Keys | Kleines Persönlichkeits-Programm |
 | 2 | [`02-understanding-llms/`](02-understanding-llms/) | LLMs, Tokens, APIs, Mistral | Erster API-Call + Chatbot |
 | 3 | [`03-langchain-fundamentals/`](03-langchain-fundamentals/) | LangChain: Prompts, Chains, strukturierte Ausgaben | Content-Assistant |
-| 4 | [`04-rag-and-knowledge/`](04-rag-and-knowledge/) | RAG: Dokumente, Embeddings, Vektor-DB | Dokumenten-Assistent |
-
-> **Stufen 5–9** (LangGraph, Agenten, Multi-Agent-Systeme, echte Projekte, Produktion) sind in Planung – der [Lernfahrplan](docs/learning-roadmap.md) zeigt die volle Vision.
+| 4 | [`04-rag-and-knowledge/`](04-rag-and-knowledge/) | RAG: Dokumente, Embeddings, Vektor-DB | Dokumenten-QA-Assistent |
+| 5 | [`05-langgraph-fundamentals/`](05-langgraph-fundamentals/) | LangGraph: State, Nodes, Edges, Routing, Loops | Erster eigener Graph |
+| 6 | [`06-ai-agents/`](06-ai-agents/) | Agenten: Tools, Memory, Checkpointer, Freigabe | Wissens-Agent |
+| 7 | [`07-advanced-langgraph/`](07-advanced-langgraph/) | Parallelität, Subgraphs, Supervisor | Multi-Agent-System |
+| 8 | [`08-real-world-projects/`](08-real-world-projects/) | 4 vollständige Projekte in Meilensteinen | Eigenes End-to-End-Projekt |
+| 9 | [`09-production/`](09-production/) | Testing, Sicherheit, Logging, Docker | Abschluss-Challenge 🎓 |
 
 ## 💰 Kosten: Fast alles ist kostenlos
 
