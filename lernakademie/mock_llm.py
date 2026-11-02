@@ -26,7 +26,7 @@ from lernakademie.config import get_model_name, has_mistral_key, is_offline_mode
 
 OFFLINE_PREFIX = "[OFFLINE]"
 
-# Maximal这么多Zeichen des Nutzer-Texts, die die Simulation aufgreift.
+# Maximal so viele Zeichen des Nutzer-Texts, die die Simulation aufgreift.
 _MAX_ECHO_CHARS = 220
 
 
