@@ -74,31 +74,58 @@ def _tool_name(werkzeug: Any) -> str:
     return name
 
 
-def _tool_parameter(werkzeug: Any) -> Dict[str, Any]:
-    """Parameter-Schema eines Tools als {name: beschreibung} (Beschreibung optional leer)."""
+def _tool_parameter(werkzeug: Any) -> Dict[str, Dict[str, Any]]:
+    """Parameter-Schema als {name: {beschreibung, typ}} (Angaben optional)."""
     args = getattr(werkzeug, "args", None)
     if isinstance(args, dict):
-        return {
-            name: (info.get("description", "") if isinstance(info, dict) else "")
-            for name, info in args.items()
-        }
+        schema = {}
+        for name, info in args.items():
+            if isinstance(info, dict):
+                schema[name] = {
+                    "beschreibung": info.get("description", ""),
+                    "typ": info.get("type", ""),
+                }
+            else:
+                schema[name] = {"beschreibung": "", "typ": ""}
+        return schema
+
     import inspect
 
-    return {name: "" for name in inspect.signature(werkzeug).parameters}
+    schema = {}
+    for name, parameter in inspect.signature(werkzeug).parameters.items():
+        annotation = parameter.annotation
+        typ = "integer" if annotation is int else (
+            "number" if annotation is float else (
+                "boolean" if annotation is bool else ""))
+        schema[name] = {"beschreibung": "", "typ": typ}
+    return schema
 
 
 def _baue_tool_args(werkzeug: Any, user_text: str) -> Dict[str, Any]:
     """Fuellt die Tool-Argumente heuristisch fuer die Offline-Simulation.
 
-    Mathematische Ausdruecke werden fuer Parameter erkannt, deren Name auf
-    'expression'/'rechnung'/'formel'/'aufgabe' lautet; alle anderen Parameter
-    erhalten den Nutzettext (uebliche Faelle: query, text, frage, ...).
+    - Rechenausdruecke ('zahl op zahl') fuer Parameter wie expression/rechnung
+    - Zahlen aus dem Text fuer int/number-Parameter (min -> erste, max -> letzte)
+    - True/False fuer bool-Parameter mit 'ja/nein'-Erkennung
+    - sonst: der Nutzettext (uebliche Faelle: query, text, frage, ...)
     """
     args: Dict[str, Any] = {}
-    for name in _tool_parameter(werkzeug):
-        if name.lower() in ("expression", "rechnung", "formel", "aufgabe"):
-            match = re.search(r"[-+*/().\d\s]+", user_text)
-            args[name] = (match.group(0).strip() if match else user_text).strip()
+    zahlen = re.findall(r"-?\d+(?:\.\d+)?", user_text)
+    for name, info in _tool_parameter(werkzeug).items():
+        name_klein = name.lower()
+        typ = str(info.get("typ", "")).lower()
+
+        if name_klein in ("expression", "rechnung", "formel", "aufgabe"):
+            match = re.search(r"-?\d+(?:\.\d+)?\s*[+\-*/]\s*-?\d+(?:\.\d+)?", user_text)
+            args[name] = match.group(0) if match else user_text
+        elif typ == "integer" or (typ == "number" and not name_klein.startswith("text")):
+            if "max" in name_klein or "bis" in name_klein or "ober" in name_klein:
+                args[name] = zahlen[-1] if zahlen else 0
+            else:
+                args[name] = zahlen[0] if zahlen else 0
+        elif typ == "boolean":
+            args[name] = any(wort in user_text.lower()
+                             for wort in ("ja", "true", "wahr", "yes"))
         else:
             args[name] = user_text
     return args
