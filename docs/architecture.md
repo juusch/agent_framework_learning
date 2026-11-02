@@ -33,7 +33,14 @@ lernakademie/
 ├── 06-ai-agents/
 ├── 07-advanced-langgraph/
 ├── 08-real-world-projects/   # 4 Projekte in Meilensteinen
-└── 09-production/            # Tests, Logging, Docker, Abschluss-Challenge
+├── 09-production/            # Tests, Logging, Docker, Abschluss-Challenge
+├── 10-knowledge-graph-fundamentals/   # KG in reinem Python
+├── 11-graph-databases/       # Neo4j + Cypher (Offline-Fallback)
+├── 12-graphs-und-llms/       # Extraktion, NL->Cypher (Whitelist)
+├── 13-graphrag/              # Vektor vs. Graph vs. Hybrid
+├── 14-graph-agents/         # Graph-Aware Agents + Freigaben
+├── 15-frontend/             # FastAPI + Streamlit-Konzepte
+└── final-project/knowledge-research-agent/   # Capstone (Backend+Frontend+Docker)
 ```
 
 ## Das Hilfs-Paket `lernakademie/`
@@ -57,6 +64,12 @@ Damit jede Loesung mit **und ohne** Mistral-API-Key laeuft, gibt es einen zentra
 ## Versionsstrategie
 
 Wir pinnen Hauptversionen (`langchain>=1.0,<2.0` u.s.w.), weil das LangChain-Ökosystem sich schnell bewegt. Upgrades werden dokumentiert, indem man die Range in `requirements.txt` anpasst und `pytest` laufen laesst.
+
+## Erweiterung: Knowledge Graphs & Capstone-Frontend (Stufen 10–15)
+
+- `lernakademie/graph_store.py` – In-Memory-Property-Graph als Neo4j-Offline-Pendant (wie MockChatModel zum LLM): Nodes/Labels/Properties, gerichtete Relationships, Breitensuche-Pfade und ein kleiner lesender **Mini-Cypher-Subset**. Läuft überall ohne Installation.
+- `lernakademie/graph_extraction.py` – LLM-Gestützte Entitäts-/Beziehungs-Extraktion (Pydantic-Vertrag; offline Regel-Fallback), Graph-Population mit Entity Resolution und die **Sicherheits-Whitelist** (`ist_sicher`/`fuehre_sicher_aus`) für generierte Abfragen.
+- **Capstone-Anwendung** (`final-project/knowledge-research-agent/`): FastAPI-Backend (api/models/retrieval/graphs/agents/services in Schichten), LangGraph-Workflow (Intent → Route → Vektor/Graph/Hybrid → Antwort mit Quellentrennung), Freigabe-Workflow (interrupt/resume, Audit-Log), Streamlit-Frontend (Chat, PyVis-Graph-Explorer, Dokumente, Prompt-Labor, Verlauf) und Docker Compose (App + optional Neo4j). Getestet über FastAPI-TestClient – 12 Tests, komplett offline.
 
 ## Stufen 5–9 (implementiert)
 

@@ -21,6 +21,18 @@ flowchart LR
 | **3 – LangChain-Fundamente** | Chat-Modelle, Prompt-Templates, Runnable-Schnittstelle, Chains, Output-Parser, strukturierte Ausgaben (Pydantic), Fehlerbehandlung | Stufe 2 | Content-Assistant |
 | **4 – RAG & Wissen** | Dokumente, Loader, Text-Splitting/Chunking, Embeddings, Vektor-Datenbanken (Chroma), Similarity Search, Retrieval-Chains, Halluzinationen | Stufe 3 | Dokumenten-QA-Assistent |
 
+## Stufen 10–15 + Capstone (Erweiterung: Knowledge Graphs & Frontend)
+
+| Stufe | Ordner | Meilenstein |
+|---|---|---|
+| **10 – KG-Fundamente** | `10-knowledge-graph-fundamentals/` | Graph in reinem Python (GraphStore) |
+| **11 – Graph-Datenbanken** | `11-graph-databases/` | Neo4j + Cypher (mit Offline-Fallback) |
+| **12 – Graphs & LLMs** | `12-graphs-und-llms/` | LLM-Extraktion, NL→Cypher (Whitelist) |
+| **13 – GraphRAG** | `13-graphrag/` | Vektor vs. Graph vs. Hybrid |
+| **14 – Graph-Aware Agents** | `14-graph-agents/` | Routing-Agent + Freigabe-Schreibschutz |
+| **15 – Frontend** | `15-frontend/` | FastAPI + Streamlit-Konzepte |
+| **Capstone** | `final-project/knowledge-research-agent/` | komplette App mit Frontend & Docker |
+
 ## Stufen 5–9 (alle ausgebaut)
 
 | Stufe | Ordner | Meilenstein |
@@ -41,5 +53,6 @@ Erfahrungswert für Anfänger:innen mit 30–60 Minuten pro Tag:
 - Stufe 3: ~2 Wochen
 - Stufe 4: ~2 Wochen
 - Stufen 5–9: ~6–8 Wochen
+- Stufen 10–15 + Capstone: ~4–6 Wochen
 
 Nimm dir die Zeit. **Verstehen schlägt Tempo.**

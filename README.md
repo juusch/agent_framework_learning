@@ -34,6 +34,17 @@ Du bist hier genau richtig, wenn du:
 | 7 | [`07-advanced-langgraph/`](07-advanced-langgraph/) | Parallelität, Subgraphs, Supervisor | Multi-Agent-System |
 | 8 | [`08-real-world-projects/`](08-real-world-projects/) | 4 vollständige Projekte in Meilensteinen | Eigenes End-to-End-Projekt |
 | 9 | [`09-production/`](09-production/) | Testing, Sicherheit, Logging, Docker | Abschluss-Challenge 🎓 |
+| 10 | [`10-knowledge-graph-fundamentals/`](10-knowledge-graph-fundamentals/) | Knowledge Graphs: Nodes, Beziehungen, Traversierung | erster eigener Graph |
+| 11 | [`11-graph-databases/`](11-graph-databases/) | Neo4j, Cypher, Python-Brücke | echte Graph-DB |
+| 12 | [`12-graphs-und-llms/`](12-graphs-und-llms/) | LLM-Extraktion, NL→Cypher mit Sicherheits-Whitelist | selbstfüllender Graph |
+| 13 | [`13-graphrag/`](13-graphrag/) | Vektor vs. Graph vs. Hybrid-Retrieval | GraphRAG |
+| 14 | [`14-graph-agents/`](14-graph-agents/) | Graph-Aware Agents, Freigabe für Graph-Schreibzugriffe | Hybrid-Agent |
+| 15 | [`15-frontend/`](15-frontend/) | FastAPI + Streamlit: UI↔Backend-Konzepte | erste Web-Oberfläche |
+| 🎓 | [`final-project/knowledge-research-agent/`](final-project/knowledge-research-agent/) | **Capstone:** Wissens- & Recherche-Agent mit Frontend | komplette Anwendung |
+
+## 🕸️ Neu: Knowledge Graphs & Frontend
+
+Die Akademie wurde um zwei Dimensionen erweitert: **Knowledge Graphs** (Stufen 10–14: Graphen in Python, Neo4j/Cypher, LLM-Extraktion, GraphRAG, graph-aware Agents) und ein **vollständiges Frontend** (Stufe 15: FastAPI + Streamlit) – gekrönt vom Capstone-Projekt [final-project/knowledge-research-agent/](final-project/knowledge-research-agent/README.md): eine lauffähige Anwendung mit Chat, interaktivem Graph-Explorer (PyVis), Dokument-RAG, Prompt-Labor, Verlauf und Human-in-the-Loop-Freigaben – **offline nutzbar, mit Docker Compose (inkl. Neo4j) für den vollen Betrieb**.
 
 ## 💰 Kosten: Fast alles ist kostenlos
 

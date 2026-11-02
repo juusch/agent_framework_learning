@@ -51,3 +51,27 @@
 **.env-Datei** – Eine lokale Datei mit Umgebungsvariablen (z. B. API-Keys). Sie wird **nie** committet (steht in `.gitignore`).
 
 **Umgebungsvariable (Environment Variable)** – Eine Einstellung, die dein Betriebssystem an Programme weitergibt – der klassische Weg, geheime Schlüssel zu übergeben, ohne sie im Code zu schreiben.
+
+**Knowledge Graph (Wissensgraph)** – Wissen als Entitäten (Nodes) und deren Verbindungen (Relationships). **Metapher:** das Ermittlungsbrett: Fotos + rote Fäden. Während Text-RAG "sinngleiche Stellen" findet, traversiert der Graph **exakte Verbindungen** – und beantwortet Fragen, die nirgends wörtlich stehen ("Wie hängt A mit B zusammen?").
+
+**Node (Graph)** – Eine Entität im Graphen mit Label (Typ) und Properties (Attribute). **Metapher:** Karteikarte mit Farbkodierung und Notizen.
+
+**Label (Graph)** – Der Typ eines Nodes (:Person, :Company) – Filterkriterium für Abfragen; ein Node kann mehrere haben.
+
+**Relationship (Graph-Beziehung)** – Gerichtete, benannte Verbindung zwischen zwei Nodes (WORKS_FOR) mit optionalen Properties (seit: 2021). **Die Daten erster Klasse** – der Unterschied zu relationalen DBs.
+
+**Cypher** – Abfragesprache von Neo4j: "ASCII-Art für Graphen" – das Suchmuster wird wörtlich gezeichnet: `MATCH (a:Person)-[:WORKS_FOR]->(c) RETURN a, c`.
+
+**Traversierung (Traversal)** – Kanten folgen, um Muster oder Pfade zu finden. Die Grundbewegung der Graph-Suche; Antworten entstehen oft erst durch Verkettung (Emergenz).
+
+**Entity Resolution** – Erkennen, ob zwei Funde dieselbe Entität sind ("Acme" = "ACME"?), damit der Graph keine Duplikate enthält. Der Türsteher vor dem Node-Anlegen.
+
+**GraphRAG** – Retrieval-Muster: Vektor-Suche (sinngleiche Texte) und Graph-Traversierung (exakte Verbindungen) kombinieren – jede Antwort weist ihre Quelle aus.
+
+**Whitelist (bei generierten Abfragen)** – Deterministische Prüfung LLM-generierter Cypher/SQL vor Ausführung: nur lesende Muster erlaubt. Schutz gegen Halluzination UND Prompt-Injection – als Python-Code, nie als LLM.
+
+**FastAPI** – Python-Framework für HTTP-APIs mit automatischer Validierung (Pydantic) und Doku (/docs). Im Capstone die Mittelschicht zwischen Frontend und Agent.
+
+**Streamlit** – Frontend-Framework in reinem Python (kein HTML/JS): Skript wird bei Interaktion neu ausgeführt, Zustand lebt in `st.session_state`. Gewählt für die Akademie, weil Lernende ohne Web-Ausbildung sofort Oberflächen bauen können.
+
+**API-Endpunkt** – Eine Adresse + Methode am Server (POST /chat), an die Clients JSON schicken und JSON zurückerhalten. **Metapher:** ein Schalter im eigenen Restaurant – der Kellner (FastAPI) nimmt Bestellungen dagegen an.
