@@ -150,13 +150,15 @@ class GraphStore:
             )
 
         # WHERE-Syntax auf die aequivalente Property-Syntax normalisieren:
-        #   (n:Person) WHERE n.name = 'Anna'  ->  (n:Person {name: 'Anna'})
+        #   MATCH (n:Person) WHERE n.name = 'Anna' RETURN n
+        #   -> MATCH (n:Person {name: 'Anna'}) RETURN n
         where_muster = re.match(
-            r"^(MATCH \(\w+(?::\w+)?\)) WHERE (\w+)\.(\w+) = '([^']+)' (RETURN .+)$",
+            r"^MATCH \((\w+)(?::(\w+))?\) WHERE \w+\.(\w+) = '([^']+)' (RETURN .+)$",
             query)
         if where_muster:
-            kopf, _var, prop, wert, rest = where_muster.groups()
-            query = f"{kopf} {{{prop}: '{wert}'}} {rest}"
+            var, label, prop, wert, rest = where_muster.groups()
+            label_teil = f":{label}" if label else ""
+            query = f"MATCH ({var}{label_teil} {{{prop}: '{wert}'}}) {rest}"
 
         # Zwei Muster: mit oder ohne Beziehungsmuster
         ohne_rela = re.match(
