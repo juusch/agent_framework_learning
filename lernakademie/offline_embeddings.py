@@ -17,7 +17,6 @@ Die Schluesselwoerter passen zu den Uebungsdokumenten in
 from __future__ import annotations
 
 import math
-import re
 from typing import List
 
 from langchain_core.embeddings import Embeddings
@@ -43,8 +42,9 @@ class OfflineKeywordEmbeddings(Embeddings):
 
     def _vector(self, text: str) -> List[float]:
         normalized = _normalize(text)
+        # Teilstring-Treffer: findet 'urlaub' auch in 'Resturlaub'
         vector = [
-            1.0 if re.search(rf"\b{re.escape(keyword)}", normalized) else 0.0
+            1.0 if keyword in normalized else 0.0
             for keyword in KEYWORDS
         ]
         norm = math.sqrt(sum(value * value for value in vector))
@@ -68,4 +68,14 @@ def get_embeddings() -> Embeddings:
     return MistralAIEmbeddings(model="mistral-embed")
 
 
-__all__ = ["OfflineKeywordEmbeddings", "get_embeddings", "KEYWORDS"]
+def hat_bezug(text: str) -> bool:
+    """True, wenn der Text (offline) mindestens ein Schluesselwort enthaelt.
+
+    Wird genutzt, um im Offline-Modus ehrlich 'kein Treffer' melden zu
+    koennen, statt beliebige Chunks zurueckzugeben.
+    """
+    normalized = _normalize(text)
+    return any(keyword in normalized for keyword in KEYWORDS)
+
+
+__all__ = ["OfflineKeywordEmbeddings", "get_embeddings", "KEYWORDS", "hat_bezug"]
