@@ -33,4 +33,4 @@ Ab der nächsten Aufgabe rufst du Mistral auf – dafür brauchst du installiert
 → [`solutions/funktions_werkstatt.py`](../solutions/funktions_werkstatt.py), [`solutions/env_demonstration.py`](../solutions/env_demonstration.py), [`solutions/venv_checkliste.md`](../solutions/venv_checkliste.md).
 
 ## Weiter
-🚀 [`01-llms-und-mistral/`](../01-llms-und-mistral/README.md) – dein Python redet zum ersten Mal mit einer echten KI.
+🚀 [`01-llms-und-mistral/`](../../01-llms-und-mistral/README.md) – dein Python redet zum ersten Mal mit einer echten KI.

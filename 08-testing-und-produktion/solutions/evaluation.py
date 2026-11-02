@@ -47,7 +47,7 @@ def bewerte() -> tuple[int, int, list[str]]:
     """Fuehrt die Eval aus: liefert (treffer, gesamt, details)."""
     import importlib.util
 
-    loesung = PROJEKT / "08-real-world-projects" / "solutions" / "knowledge_assistant.py"
+    loesung = PROJEKT / "03-build2-langchain-rag" / "solutions" / "build2_assistant.py"
     spec = importlib.util.spec_from_file_location("knowledge_assistant", loesung)
     modul = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modul)

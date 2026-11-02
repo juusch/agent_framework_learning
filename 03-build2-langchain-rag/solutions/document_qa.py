@@ -18,7 +18,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from lernakademie.mock_llm import get_chat_model, is_offline_mode
 from lernakademie.offline_embeddings import get_embeddings, hat_bezug
 
-DATA = Path(__file__).resolve().parents[1] / "data"
+DATA = Path(__file__).resolve().parents[2] / "data"
 
 NICHT_GEFUNDEN = "Das steht in den Dokumenten leider nicht."
 

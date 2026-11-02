@@ -17,7 +17,7 @@ from langgraph.graph import END, START, StateGraph
 from lernakademie.graph_store import GraphStore
 from lernakademie.offline_embeddings import get_embeddings, hat_bezug
 
-DATA = Path(__file__).resolve().parents[2] / "13-graphrag" / "data" / "firmenprofil.md"
+DATA = Path(__file__).resolve().parents[2] / "data" / "firmenprofil.md"
 
 
 class AgentZustand(TypedDict):

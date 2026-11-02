@@ -18,14 +18,14 @@ def lade_modul(relativer_pfad: str):
 
 
 def test_routing_klassifizierung():
-    routing = lade_modul("05-langgraph-fundamentals/solutions/routing_graph.py")
+    routing = lade_modul("05-build3-langgraph-graphrag/solutions/routing_graph.py")
     assert routing.klassifizieren({"eingabe": "Falscher Betrag auf der Rechnung"})["kategorie"] == "rechnung"
     assert routing.klassifizieren({"eingabe": "App stuerzt ab"})["kategorie"] == "technisch"
     assert routing.klassifizieren({"eingabe": "Guten Tag"})["kategorie"] == "allgemein"
 
 
 def test_loop_terminiert_immer():
-    loop = lade_modul("05-langgraph-fundamentals/solutions/loop_graph.py")
+    loop = lade_modul("05-build3-langgraph-graphrag/solutions/loop_graph.py")
     app = loop.baue_graph()
     ergebnis = app.invoke({"text": "x", "bewertung": 0, "versuche": 0,
                            "max_versuche": 3, "historie": []})
@@ -34,7 +34,7 @@ def test_loop_terminiert_immer():
 
 
 def test_parallel_workflow():
-    parallel = lade_modul("07-advanced-langgraph/solutions/parallel_workflow.py")
+    parallel = lade_modul("06-agents-und-tools/solutions/parallel_workflow.py")
     app = parallel.baue_graph()
     ergebnis = app.invoke({"text": "eins zwei drei", "befund_1": 0,
                            "befund_2": 0, "befund_3": 0.0, "bericht": ""})
@@ -43,7 +43,7 @@ def test_parallel_workflow():
 
 
 def test_subgraph_und_aeusserer_graph():
-    sub = lade_modul("07-advanced-langgraph/solutions/subgraph_workflow.py")
+    sub = lade_modul("06-agents-und-tools/solutions/subgraph_workflow.py")
     loop = sub.baue_qualitaets_loop()
     solo = loop.invoke({"text": "test", "bewertung": 0, "versuche": 0, "max_versuche": 2})
     assert "Politur" in solo["text"]
@@ -54,7 +54,7 @@ def test_subgraph_und_aeusserer_graph():
 
 
 def test_supervisor_delegation():
-    sup = lade_modul("07-advanced-langgraph/solutions/supervisor_workflow.py")
+    sup = lade_modul("06-agents-und-tools/solutions/supervisor_workflow.py")
     app = sup.baue_supervisor_graph()
     ergebnis = app.invoke({"auftrag": "RAG", "naechster_schritt": "",
                            "stichpunkte": [], "bericht": "", "ergebnis_log": [],
@@ -64,7 +64,7 @@ def test_supervisor_delegation():
 
 
 def test_logging_maskierung():
-    demo = lade_modul("09-production/solutions/logging_demo.py")
+    demo = lade_modul("08-testing-und-produktion/solutions/logging_demo.py")
     maskiert = demo.maske_geheimnisse("key a1b2c3d4e5f6g7h8i9j0 gelesen")
     assert "a1b2c3d4" not in maskiert
     assert "***" in maskiert

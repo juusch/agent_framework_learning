@@ -74,6 +74,6 @@ Herzlichen Glückwunsch – das war dein **Hello World**! 🎉
 
 ## Schritt 6: Weiter geht's
 
-Öffne jetzt [`00-getting-started/README.md`](00-getting-started/README.md) und arbeite die erste richtige Aufgabe durch.
+Öffne jetzt [`00-setup/README.md`](00-setup/README.md) und arbeite die erste richtige Aufgabe durch.
 
 **Wichtig:** Die Akademie funktioniert wie ein Videospiel mit Levels. Überspringe nichts – jede Stufe baut auf der vorherigen auf.

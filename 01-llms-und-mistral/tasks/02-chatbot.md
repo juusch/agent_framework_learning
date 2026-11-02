@@ -34,4 +34,4 @@ LLMs sind **gedächtnislos**: Jeder Aufruf ist ein isolierter Moment. „Gedäch
 → [`solutions/cli_chatbot.py`](../solutions/cli_chatbot.py), [`solutions/messages_and_temperature.py`](../solutions/messages_and_temperature.py)
 
 ## Weiter
-🧱 [`../02-build1-python-assistent/`](../02-build1-python-assistent/README.md) – **Build 1**: derselbe Chatbot, aber mit echtem Wissen aus Dokumenten – in reinem Python, ohne jedes KI-Framework.
+🧱 [`../02-build1-python-assistent/`](../../02-build1-python-assistent/README.md) – **Build 1**: derselbe Chatbot, aber mit echtem Wissen aus Dokumenten – in reinem Python, ohne jedes KI-Framework.

@@ -6,41 +6,15 @@ Diese Seite erklärt, **wie das Repository aufgebaut ist** und wie die technisch
 
 ```
 lernakademie/
-├── README.md            # Einstiegsseite
-├── START_HERE.md         # Gefuehrte Erstinstallation
-├── PROGRESS.md           # Fortschritts-Tracker des Lernenden
-├── requirements.txt      # Gepinnte Abhaengigkeiten
-├── pyproject.toml        # Projekt-Metadaten + pytest-Konfiguration
-├── .env.example          # Vorlage fuer Geheimnisse (die echte .env wird nie committet)
-│
-├── docs/                 # Referenz-Dokumentation
-│
-├── lernakademie/          # Gemeinsames Hilfs-Paket (s.u.)
-│   └── tests/             # Automatische Tests des Hilfs-Pakets
-│
-├── 00-getting-started/    # Jede Lernstufe folgt demselben Muster:
-│   ├── README.md          #   Einfuehrung + Aufgabenuebersicht
-│   ├── tasks/             #   Aufgabenbeschreibungen (16-Sektionen-Template)
-│   ├── solutions/         #   vollstaendige, lauffaehige Referenzloesungen
-│   └── examples/          #   kleine Demo-Skripte zum Ausprobieren
-│
-├── 01-python-fundamentals/
-├── 02-understanding-llms/
-├── 03-langchain-fundamentals/
-├── 04-rag-and-knowledge/
-│   └── data/              # Uebungsdokumente (frei erfunden)
-├── 05-langgraph-fundamentals/
-├── 06-ai-agents/
-├── 07-advanced-langgraph/
-├── 08-real-world-projects/   # 4 Projekte in Meilensteinen
-├── 09-production/            # Tests, Logging, Docker, Abschluss-Challenge
-├── 10-knowledge-graph-fundamentals/   # KG in reinem Python
-├── 11-graph-databases/       # Neo4j + Cypher (Offline-Fallback)
-├── 12-graphs-und-llms/       # Extraktion, NL->Cypher (Whitelist)
-├── 13-graphrag/              # Vektor vs. Graph vs. Hybrid
-├── 14-graph-agents/         # Graph-Aware Agents + Freigaben
-├── 15-frontend/             # FastAPI + Streamlit-Konzepte
-└── final-project/knowledge-research-agent/   # Capstone (Backend+Frontend+Docker)
+├── README.md / START_HERE.md / PROGRESS.md
+├── requirements.txt / pyproject.toml / .env.example
+├── docs/                 # Roadmap, Glossar, Troubleshooting, Vergleichs-Doc
+├── data/                 # gemeinsam genutzte Wissensdokumente (alle Builds!)
+├── lernakademie/          # Hilfs-Paket: Offline-Modus, Mock-LLM (inkl. Tool-Calling),
+│                          # GraphStore (Neo4j-Pendant + Mini-Cypher), Graph-Extraktion
+├── 00-setup/ ... 08-testing-und-produktion/   # 9 Module, je README + tasks/ + solutions/
+├── final-project/knowledge-research-agent/    # Capstone: FastAPI + Streamlit + Docker
+└── tests/                # Akademie-Tests (offline, CI-faehig)
 ```
 
 ## Das Hilfs-Paket `lernakademie/`

@@ -38,4 +38,4 @@ Du erweiterst Build 1 um Gesprächs-Verlauf und eine **Streamlit-Chat-Oberfläch
 → [`solutions/chat_ui.py`](../solutions/chat_ui.py) (Oberfläche, kommentiert) + [`solutions/pure_python_assistant.py`](../solutions/pure_python_assistant.py) (erweiterte Fassung mit Firmenprofil).
 
 ## Weiter
-🔗 [`../03-build2-langchain-rag/`](../03-build2-langchain-rag/README.md) – **Build 2**: LangChain ersetzt dein handgebautes Fließband, und semantische Suche ersetzt Wort-Überlappung.
+🔗 [`../03-build2-langchain-rag/`](../../03-build2-langchain-rag/README.md) – **Build 2**: LangChain ersetzt dein handgebautes Fließband, und semantische Suche ersetzt Wort-Überlappung.

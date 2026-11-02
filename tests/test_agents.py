@@ -20,7 +20,7 @@ def lade_modul(relativer_pfad: str):
 
 
 def test_toolbox_agent_tools():
-    toolbox = lade_modul("06-ai-agents/solutions/toolbox_agent.py")
+    toolbox = lade_modul("06-agents-und-tools/solutions/toolbox_agent.py")
     assert "84" in toolbox.taschenrechner.invoke({"expression": "12 * 7"})
     assert "Ungueltiger Ausdruck" in toolbox.taschenrechner.invoke({"expression": "abc"})
     assert "Fehler" in toolbox.zufallszahl.invoke({"minimum": 9, "maximum": 3})
@@ -28,7 +28,7 @@ def test_toolbox_agent_tools():
 
 
 def test_knowledge_agent_retrieval_tool():
-    know = lade_modul("06-ai-agents/solutions/knowledge_agent.py")
+    know = lade_modul("06-agents-und-tools/solutions/knowledge_agent.py")
     retriever = know.baue_retriever(k=3)
     such_tool = know.baue_such_tool(retriever)
     treffer = such_tool.invoke({"suchbegriff": "Wie viele Urlaubstage gibt es?"})
@@ -38,7 +38,7 @@ def test_knowledge_agent_retrieval_tool():
 
 
 def test_memory_approval_agent_flow():
-    mem = lade_modul("06-ai-agents/solutions/memory_approval_agent.py")
+    mem = lade_modul("06-agents-und-tools/solutions/memory_approval_agent.py")
     agent = mem.baue_agent()
     config = {"configurable": {"thread_id": "test-thread"}}
 

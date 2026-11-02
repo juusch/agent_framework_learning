@@ -15,7 +15,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from lernakademie.graph_store import GraphStore
 from lernakademie.offline_embeddings import get_embeddings, hat_bezug
 
-DATA = Path(__file__).resolve().parents[1] / "data" / "firmenprofil.md"
+DATA = Path(__file__).resolve().parents[2] / "data" / "firmenprofil.md"
 
 
 def baue_vektor_index(k: int = 2):

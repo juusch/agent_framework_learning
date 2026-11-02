@@ -1,106 +1,51 @@
-# 🏆 Mein Fortschritt
+# 🏆 Mein Fortschritt durch die Akademie
 
-Hake ab, was du geschafft hast. Am besten **nach jedem Abschnitt** ein `x` in die Klammer schreiben.
+Hake nach jedem Abschnitt ab – halte dein Tempo, nicht ein fremdes.
 
-## Stufe 0 – Getting Started
-- [ ] Python installiert und Version geprüft
-- [ ] VS Code installiert + Python-Erweiterung
-- [ ] Erste Terminal-Befehle ausprobiert (`pwd` / `ls` / `cd`)
-- [ ] Aufgabe 0.1: Hello World
-- [ ] Aufgabe 0.2: Variablen & Benutzereingabe (personalisierte Begrüßung)
+## Modul 0 – Setup & Python
+- [ ] 0.1 Hallo Welt & Terminal
+- [ ] 0.2 Daten & Struktur (Listen, Dictionaries)
+- [ ] 0.3 Funktionen, venv & API-Keys
 
-## Stufe 1 – Python-Fundamente
-- [ ] Aufgabe 1.1: Listen & Dictionaries (Einkaufslisten-Manager)
-- [ ] Aufgabe 1.2: Funktionen
-- [ ] Aufgabe 1.3: Virtuelle Umgebungen & Pakete
-- [ ] Aufgabe 1.4: Umgebungsvariablen & API-Keys
-- [ ] Aufgabe 1.5: Mini-Projekt – Persönlicher Assistent (Logik-Version)
+## Modul 1 – LLMs & Mistral
+- [ ] 1.1 Erster API-Call (Nachrichten, Tokens, Kosten)
+- [ ] 1.2 Chatbot mit Gedächtnis & Temperature
 
-## Stufe 2 – LLMs verstehen
-- [ ] Aufgabe 2.1: Traditionelle Logik vs. KI
-- [ ] Aufgabe 2.2: Erster API-Call an Mistral
-- [ ] Aufgabe 2.3: System-Nachrichten & Temperature
-- [ ] Aufgabe 2.4: Kommandozeilen-Chatbot
+## Modul 2 – 🧱 BUILD 1: Pure Python
+- [ ] 2.1 Der Pure-Python-Assistent (Dokumente + Suche + LLM)
+- [ ] 2.2 Orchestrierung + erste Oberfläche (+ Schmerz-Doku!)
 
-## Stufe 3 – LangChain-Fundamente
-- [ ] Aufgabe 3.1: Hello LangChain
-- [ ] Aufgabe 3.2: Wiederverwendbare Prompt-Templates & Chains (Zusammenfasser)
-- [ ] Aufgabe 3.3: Strukturierte Ausgaben mit Pydantic
-- [ ] Aufgabe 3.4: Mini-Projekt – Content-Assistant
+## Modul 3 – 🔗 BUILD 2: LangChain + Vektor-RAG
+- [ ] 3.1 Chains (Templates, Modelle, Parser)
+- [ ] 3.2 Vektor-RAG (Chunking, Embeddings, Chroma)
+- [ ] 3.3 Build 2 komplett (RAG-Assistent mit Quellen)
 
-## Stufe 4 – RAG & Wissen
-- [ ] Aufgabe 4.1: Dokument laden & zusammenfassen
-- [ ] Aufgabe 4.2: Chunking & Embeddings
-- [ ] Aufgabe 4.3: Vektor-Datenbank & semantische Suche
-- [ ] Aufgabe 4.4: Dokumenten-QA-Assistent
+## Modul 4 – Knowledge Graphs
+- [ ] 4.1 Graphen in reinem Python (Traversierung, Emergenz)
+- [ ] 4.2 Neo4j & Cypher (+ Python-Brücke)
 
-## Stufe 5 – LangGraph-Fundamente
-- [ ] Aufgabe 5.1: Hello Graph
-- [ ] Aufgabe 5.2: State & Nodes (Werkstatt)
-- [ ] Aufgabe 5.3: Konditionales Routing (Support-Router)
-- [ ] Aufgabe 5.4: Schleifen (Qualitäts-Loop)
+## Modul 5 – 🚀 BUILD 3: LangGraph + GraphRAG
+- [ ] 5.1 LangGraph-Workflows (State, Routing, Loops)
+- [ ] 5.2 Hybrid-Retrieval (Vektor vs. Graph vs. Beide)
+- [ ] 5.3 Extraktion & NL→Cypher (Whitelist!)
+- [ ] 5.4 Build 3 komplett (Routing-Assistent + Freigabe)
 
-## Stufe 6 – KI-Agenten
-- [ ] Aufgabe 6.1: Erstes Tool (wortzaehler)
-- [ ] Aufgabe 6.2: Werkzeugkasten (Rechner, Uhrzeit, Zufall)
-- [ ] Aufgabe 6.3: Wissens-Agent (RAG als Tool)
-- [ ] Aufgabe 6.4: Gedächtnis & Freigabe (Checkpointer + interrupt)
+## Modul 6 – Agenten-Vertiefung
+- [ ] 6.1 Agenten mit Werkzeugen
+- [ ] 6.2 Gedächtnis, Checkpointer & Freigaben
+- [ ] 6.3 Parallelität, Subgraphs & Supervisor
 
-## Stufe 7 – Fortgeschrittenes LangGraph
-- [ ] Aufgabe 7.1: Parallelaufgaben
-- [ ] Aufgabe 7.2: Subgraphs
-- [ ] Aufgabe 7.3: Supervisor
+## Modul 7 – 🏁 Finale Anwendung
+- [ ] 7.1 Backend live erlebt (inkl. Freigabe + Audit)
+- [ ] 7.2 Frontend komplett + Docker Compose
 
-## Stufe 8 – Echte Projekte
-- [ ] Projekt A: Wissens-Assistent
-- [ ] Projekt B: Recherche-Assistent
-- [ ] Projekt C: Business-Assistent
-- [ ] Projekt D: Workflow-Assistent
+## Modul 8 – Testing & Produktion
+- [ ] 8.1 Testing & Evaluierung
+- [ ] 8.2 Sicherheit, Kosten, Betrieb + Abschluss-Reflexion
 
-## Stufe 9 – Produktion
-- [ ] Aufgabe 9.1: Testing & Evaluierung
-- [ ] Aufgabe 9.2: Sicherheit, Kosten, Observability
-- [ ] Aufgabe 9.3: Docker + Abschluss-Challenge
-
-## Stufe 10 – Knowledge-Graph-Fundamente
-- [ ] Aufgabe 10.1: Erster Graph (Python-Dictionaries/GraphStore)
-- [ ] Aufgabe 10.2: Entitäten, Labels & Properties
-- [ ] Aufgabe 10.3: Beziehungen abfragen & Traversierung
-- [ ] Aufgabe 10.4: Visualisierung (Mermaid + Fokus-View)
-
-## Stufe 11 – Graph-Datenbanken
-- [ ] Aufgabe 11.1: Neo4j-Setup & Cypher (+ Offline-Fallback)
-- [ ] Aufgabe 11.2: Python ↔ Neo4j-Brücke
-
-## Stufe 12 – Graphs & LLMs
-- [ ] Aufgabe 12.1: Extraktion (Entitäten & Beziehungen)
-- [ ] Aufgabe 12.2: Graph-Population & Entity Resolution
-- [ ] Aufgabe 12.3: Natürliche Sprache → Cypher (mit Whitelist)
-
-## Stufe 13 – GraphRAG
-- [ ] Aufgabe 13.1: Vektor- vs. Graph-Retrieval im Vergleich
-- [ ] Aufgabe 13.2: Hybrid-Retrieval
-
-## Stufe 14 – Graph-Aware Agents
-- [ ] Aufgabe 14.1: Agent mit Vektor-/Graph-Routing
-- [ ] Aufgabe 14.2: Freigabe für destruktive Graph-Operationen
-
-## Stufe 15 – Frontend
-- [ ] Aufgabe 15.1: FastAPI-Grundlagen
-- [ ] Aufgabe 15.2: Streamlit-Chat
-- [ ] Aufgabe 15.3: Architektur & Sicherheit
-
-## Capstone
-- [ ] Backend lokal gestartet (offline) und per /docs erkundet
-- [ ] Chat mit Routen-Anzeige genutzt
-- [ ] Graph-Explorer bedient (Nodes klicken, suchen)
-- [ ] Dokument hochgeladen und darüber gefragt
-- [ ] Freigabe erteilt UND abgelehnt (Audit geprüft)
-- [ ] docker compose up einmal ausgeführt (inkl. Neo4j)
-
-## Abschluss
-- [ ] Ich kann erklären, was ein LLM ist, ohne Wikipedia zu benutzen.
-- [ ] Ich habe eine eigene kleine KI-Anwendung gebaut und verstanden, *warum* jede Zeile existiert.
-- [ ] Ich habe die Abschluss-Challenge (Stufe 9.3) eigenständig gebaut.
-- [ ] Ich kann erklären, wann Vektor-RAG und wann ein Knowledge Graph die bessere Wahl ist.
-- [ ] Ich kann die Capstone-Architektur (Frontend → API → Agent → Vektor/Graph) erklären.
+## 🎓 Abschluss-Check
+- [ ] Ich kann erklären, was Build 1, 2 und 3 jeweils **besser und schlechter** machen → [„Same Problem, Three Architectures"](docs/same-problem-three-architectures.md)
+- [ ] Ich kann die finale Architektur (Frontend → API → Agent → Vektor/Graph) erklären.
+- [ ] Ich kann begründen, wann Vektor-RAG und wann ein Knowledge Graph die richtige Wahl ist.
+- [ ] Ich habe die Abschluss-Reflexion (8.2) schriftlich beantwortet.
+- [ ] Ich habe ein eigenes Projekt-Idee notiert. 🚀

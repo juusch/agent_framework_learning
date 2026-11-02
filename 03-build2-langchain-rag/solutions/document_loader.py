@@ -15,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from lernakademie.mock_llm import get_chat_model, is_offline_mode
 
-PFAD = Path(__file__).resolve().parents[1] / "data" / "mitarbeiter-handbuch.md"
+PFAD = Path(__file__).resolve().parents[2] / "data" / "mitarbeiter-handbuch.md"
 
 
 def lade_pur(pfad: Path) -> str:

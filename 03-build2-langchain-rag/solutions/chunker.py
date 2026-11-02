@@ -13,7 +13,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from lernakademie.mock_llm import is_offline_mode
 from lernakademie.offline_embeddings import KEYWORDS, get_embeddings
 
-DATA = Path(__file__).resolve().parents[1] / "data"
+DATA = Path(__file__).resolve().parents[2] / "data"
 
 FRAGEN = [
     "Wie viele Urlaubstage habe ich?",

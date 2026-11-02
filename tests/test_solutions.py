@@ -25,22 +25,22 @@ def lade_modul(relativer_pfad: str):
 
 @pytest.fixture(scope="module")
 def einkaufsliste():
-    return lade_modul("01-python-fundamentals/solutions/einkaufsliste.py")
+    return lade_modul("00-setup/solutions/einkaufsliste.py")
 
 
 @pytest.fixture(scope="module")
 def werkstatt():
-    return lade_modul("01-python-fundamentals/solutions/funktions_werkstatt.py")
+    return lade_modul("00-setup/solutions/funktions_werkstatt.py")
 
 
 @pytest.fixture(scope="module")
 def assistant():
-    return lade_modul("01-python-fundamentals/solutions/personal_assistant.py")
+    return lade_modul("00-setup/solutions/personal_assistant.py")
 
 
 @pytest.fixture(scope="module")
 def document_qa():
-    return lade_modul("04-rag-and-knowledge/solutions/document_qa.py")
+    return lade_modul("03-build2-langchain-rag/solutions/document_qa.py")
 
 
 # ---- Stufe 1 -------------------------------------------------------------

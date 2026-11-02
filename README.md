@@ -1,86 +1,60 @@
 # 🎓 LangChain & LangGraph Lernakademie
 
-**Von absolut null bis zu eigenen KI-Anwendungen – auf Deutsch, Schritt für Schritt, mit echten Übungen.**
+**Von absolut null bis zum eigenen KI-Agenten mit Frontend – auf Deutsch, Schritt für Schritt.**
 
-Willkommen! Dieses Repository ist eine geführte Lernreise. Es ist **keine** Sammlung von Dokumentation und auch kein Code-Snippet-Archiv, sondern eine strukturierte, aufgabengetriebene Akademie für Menschen, die noch **nie programmiert** haben.
+Diese Akademie folgt einem Leitprinzip: **Build It 3 Times.** Du baust denselben **Personal Knowledge Assistant** drei Mal – jedes Mal mit besseren Werkzeugen, jedes Mal mit tieferem Verständnis:
 
-## Für wen ist das?
+> 🧱 **Build 1** – Pure Python: alles von Hand verstehen
+> 🔗 **Build 2** – LangChain + Vektor-RAG: semantische Suche, Fließband-Chains
+> 🚀 **Build 3** – LangGraph + Knowledge Graph + Hybrid-Retrieval: der vollwertige Agent
 
-Du bist hier genau richtig, wenn du:
+→ Die vollständige Gegenüberstellung: **[„Same Problem, Three Architectures"](docs/same-problem-three-architectures.md)**
 
-- noch nie eine Zeile Python geschrieben hast,
-- nicht weißt, was ein Terminal, eine API oder ein „LLM" ist,
-- irgendwann eigene KI-Anwendungen mit **LangChain**, **LangGraph** und **Mistral AI** bauen möchtest,
-- am besten durch Ausprobieren, Wiederholen und kleine Erfolge lernst.
+## Für wen?
 
-## Wie funktioniert die Akademie?
+Noch nie programmiert? Kein Terminal, keine API, kein LLM gesehen? **Genau richtig hier.** Du brauchst nur einen Computer, Internet und Neugier – kein Vorwissen.
 
-1. **Lies [`START_HERE.md`](START_HERE.md)** – dort startest du in 10 Minuten mit deinem ersten Programm.
-2. Arbeite die Lernstufen **in Reihenfolge** durch (siehe [Lernfahrplan](docs/learning-roadmap.md)).
-3. Jede Aufgabe folgt immer demselben Aufbau: Konzept erklärt → deine Mission → Hinweise → **dein Versuch** → Referenzlösung mit Zeile-für-Zeile-Walkthrough.
-4. Trage deinen Fortschritt in [`PROGRESS.md`](PROGRESS.md) ein.
+## Der Weg in 9 Modulen (~23 Aufgaben, je 30–90 Min)
 
-## Die Lernstufen
+| Modul | Thema | Build |
+|---|---|---|
+| 0 | [`00-setup/`](00-setup/) – Python, Terminal, Funktionen, venv, API-Keys | – |
+| 1 | [`01-llms-und-mistral/`](01-llms-und-mistral/) – erster API-Call, Chatbot, Temperature | – |
+| 2 | [`02-build1-python-assistent/`](02-build1-python-assistent/) – **BUILD 1**: der Assistent in reinem Python + erste Oberfläche | 🧱 1 |
+| 3 | [`03-build2-langchain-rag/`](03-build2-langchain-rag/) – **BUILD 2**: Chains, Embeddings, Vektor-RAG | 🔗 2 |
+| 4 | [`04-knowledge-graphs/`](04-knowledge-graphs/) – Graphen in Python, Neo4j & Cypher | – |
+| 5 | [`05-build3-langgraph-graphrag/`](05-build3-langgraph-graphrag/) – **BUILD 3**: LangGraph, Hybrid-Retrieval, Freigaben | 🚀 3 |
+| 6 | [`06-agents-und-tools/`](06-agents-und-tools/) – Agenten-Vertiefung: Tools, Gedächtnis, Supervisor | – |
+| 7 | [`07-finale-app/`](07-finale-app/) – die finale Anwendung + komplettes Frontend + Docker | 🏁 |
+| 8 | [`08-testing-und-produktion/`](08-testing-und-produktion/) – Testing, Sicherheit, Betrieb, Abschluss | – |
 
-| Stufe | Ordner | Thema | Meilenstein |
-|---|---|---|---|
-| 0 | [`00-getting-started/`](00-getting-started/) | Einrichtung + erstes Programm | Hello World 🎉 |
-| 1 | [`01-python-fundamentals/`](01-python-fundamentals/) | Python-Grundlagen, venv, API-Keys | Kleines Persönlichkeits-Programm |
-| 2 | [`02-understanding-llms/`](02-understanding-llms/) | LLMs, Tokens, APIs, Mistral | Erster API-Call + Chatbot |
-| 3 | [`03-langchain-fundamentals/`](03-langchain-fundamentals/) | LangChain: Prompts, Chains, strukturierte Ausgaben | Content-Assistant |
-| 4 | [`04-rag-and-knowledge/`](04-rag-and-knowledge/) | RAG: Dokumente, Embeddings, Vektor-DB | Dokumenten-QA-Assistent |
-| 5 | [`05-langgraph-fundamentals/`](05-langgraph-fundamentals/) | LangGraph: State, Nodes, Edges, Routing, Loops | Erster eigener Graph |
-| 6 | [`06-ai-agents/`](06-ai-agents/) | Agenten: Tools, Memory, Checkpointer, Freigabe | Wissens-Agent |
-| 7 | [`07-advanced-langgraph/`](07-advanced-langgraph/) | Parallelität, Subgraphs, Supervisor | Multi-Agent-System |
-| 8 | [`08-real-world-projects/`](08-real-world-projects/) | 4 vollständige Projekte in Meilensteinen | Eigenes End-to-End-Projekt |
-| 9 | [`09-production/`](09-production/) | Testing, Sicherheit, Logging, Docker | Abschluss-Challenge 🎓 |
-| 10 | [`10-knowledge-graph-fundamentals/`](10-knowledge-graph-fundamentals/) | Knowledge Graphs: Nodes, Beziehungen, Traversierung | erster eigener Graph |
-| 11 | [`11-graph-databases/`](11-graph-databases/) | Neo4j, Cypher, Python-Brücke | echte Graph-DB |
-| 12 | [`12-graphs-und-llms/`](12-graphs-und-llms/) | LLM-Extraktion, NL→Cypher mit Sicherheits-Whitelist | selbstfüllender Graph |
-| 13 | [`13-graphrag/`](13-graphrag/) | Vektor vs. Graph vs. Hybrid-Retrieval | GraphRAG |
-| 14 | [`14-graph-agents/`](14-graph-agents/) | Graph-Aware Agents, Freigabe für Graph-Schreibzugriffe | Hybrid-Agent |
-| 15 | [`15-frontend/`](15-frontend/) | FastAPI + Streamlit: UI↔Backend-Konzepte | erste Web-Oberfläche |
-| 🎓 | [`final-project/knowledge-research-agent/`](final-project/knowledge-research-agent/) | **Capstone:** Wissens- & Recherche-Agent mit Frontend | komplette Anwendung |
+**Das Finale:** [`final-project/knowledge-research-agent/`](final-project/knowledge-research-agent/README.md) – dein Build-3-Assistent als lauffähiges System: FastAPI-Backend, Streamlit-Frontend (Chat, interaktiver Graph-Explorer, Dokument-Upload, Prompt-Labor, Freigaben), Docker Compose inkl. Neo4j.
 
-## 🕸️ Neu: Knowledge Graphs & Frontend
+## 💰 Kosten: fast alles ist kostenlos
 
-Die Akademie wurde um zwei Dimensionen erweitert: **Knowledge Graphs** (Stufen 10–14: Graphen in Python, Neo4j/Cypher, LLM-Extraktion, GraphRAG, graph-aware Agents) und ein **vollständiges Frontend** (Stufe 15: FastAPI + Streamlit) – gekrönt vom Capstone-Projekt [final-project/knowledge-research-agent/](final-project/knowledge-research-agent/README.md): eine lauffähige Anwendung mit Chat, interaktivem Graph-Explorer (PyVis), Dokument-RAG, Prompt-Labor, Verlauf und Human-in-the-Loop-Freigaben – **offline nutzbar, mit Docker Compose (inkl. Neo4j) für den vollen Betrieb**.
+Zwei Modi, automatisch gewählt: **Ohne API-Key** läuft jede Lösung im Offline-Modus (klar gekennzeichnete `[OFFLINE]`-Antworten; Retrieval, Graphen, Workflows und Freigaben sind trotzdem echt). **Mit** `MISTRAL_API_KEY` in `.env` wird alles zu echten Mistral-Anwendungen. Aufgaben mit echten API-Kosten sind mit ⚠️ markiert.
 
-## 💰 Kosten: Fast alles ist kostenlos
-
-Wir nutzen zwei Modi:
-
-- **Offline-Modus (Standard):** Jede Übung läuft auch **ohne API-Key und ohne Kosten**, weil ein klar gekennzeichneter simulierter LLM-Modus (`[OFFLINE]`) verwendet wird.
-- **Echter Mistral-Modus:** Sobald du einen Mistral-API-Key in `.env` einträgst (siehe [`.env.example`](.env.example)), verwendet jede Lösung automatisch das echte Modell.
-
-Aufgaben, die mit ⚠️ **Kosten** markiert sind, führen echte API-Aufrufe aus, wenn ein Key vorhanden ist – ohne Key laufen sie automatisch im Offline-Modus weiter.
-
-## Voraussetzungen
-
-- Ein Computer mit Windows, macOS oder Linux.
-- Internetzugang (für die Installation von Python und Paketen).
-- **Kein** Vorwissen in Programmierung.
-
-## Schnellstart (3 Schritte)
+## Schnellstart
 
 ```bash
-# 1. Python 3.11+ installieren (siehe START_HERE.md), dann:
-python -m venv .venv
-
-# 2. Virtuelle Umgebung aktivieren
-#    Windows:  .venv\Scripts\activate
-#    macOS/Linux: source .venv/bin/activate
-
-# 3. Abhängigkeiten installieren
-pip install -r requirements.txt
+python -m venv .venv                       # 1. Umgebung
+source .venv/bin/activate                  #    Windows: .venv\Scripts\activate
+pip install -r requirements.txt            # 2. Abhängigkeiten
+python3 00-setup/solutions/hello_world.py  # 3. Los geht's!
 ```
 
-Kopiere anschließend `.env.example` zu `.env`, wenn du echte Mistral-Aufrufe machen möchtest.
+Dann: [`START_HERE.md`](START_HERE.md) lesen → [`PROGRESS.md`](PROGRESS.md) als Checkliste nutzen.
 
-## Mitmachen
+## Das Lernversprechen
 
-Fehler gefunden oder Ideen? [`CONTRIBUTING.md`](CONTRIBUTING.md) erklärt, wie du helfen kannst.
+Wenn du durch bist, hast du die Stationen erlebt:
 
-## Lizenz
+1. „Ich kann Python eine KI anrufen lassen."
+2. „Ich verstehe, was LangChain mir abnimmt."
+3. „Ich verstehe, wie Vektor-Datenbanken Wissen finden."
+4. „Ich verstehe, wie Knowledge Graphen Beziehungen darstellen."
+5. „Ich habe einen Agenten gebaut, der **alles** kombiniert – und bediene ihn über ein echtes Frontend."
 
-MIT – siehe [`LICENSE`](LICENSE). Die mitgelieferten Übungsdaten (`04-rag-and-knowledge/data/`) sind frei erfunden.
+## Weiterführendes
+
+[Lernfahrplan](docs/learning-roadmap.md) · [Glossar](docs/glossary.md) · [Troubleshooting](docs/troubleshooting.md) · [Python-Basics](docs/python-basics.md) · [Architektur](docs/architecture.md) · [Mitmachen](CONTRIBUTING.md) · [Lizenz](LICENSE) (MIT)
