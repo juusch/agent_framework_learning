@@ -6,6 +6,7 @@
 langchain>=1.0,<2.0
 langchain-core>=1.0,<2.0
 langchain-mistralai>=1.0,<2.0
+langchain-openai>=1.0,<2.0   # OpenAI-kompatible Endpoints (lokale Server & Cloud)
 langchain-chroma>=1.0,<2.0
 langchain-text-splitters>=1.0,<2.0
 langgraph>=1.0,<2.0

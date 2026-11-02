@@ -21,7 +21,7 @@ from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode
 from langgraph.types import Command, interrupt
 
-from lernakademie.mock_llm import get_chat_model, is_offline_mode
+from lernakademie.llm_client import get_chat_model, is_offline_mode
 
 ANGELEGTE_NOTIZEN: list[str] = []  # simulierter "Notizspeicher"
 

@@ -31,7 +31,8 @@ from backend.retrieval.graph_api import baue_wissens_graph, graph_als_dto
 from backend.retrieval.vector import Wissensbasis
 from backend.services.session import verlauf_anhaengen, verlauf_holen
 
-from lernakademie.mock_llm import get_chat_model, is_offline_mode
+from lernakademie.llm_client import get_chat_model, is_offline_mode
+from lernakademie.config import llm_zusammenfassung
 
 app = FastAPI(title="Knowledge & Research Agent", version="1.0")
 
@@ -42,12 +43,27 @@ WORKFLOW = baue_workflow(WISSENSBASIS, GRAPH)
 FREIGABE_WORKFLOW = approval.baue_freigabe_workflow(GRAPH)
 
 
+ANBIETER_LABEL = {
+    "mistral": "Mistral Cloud",
+    "openai_compatible": "OpenAI-kompatibler Server",
+    "offline": "Offline-Modus (Simulation)",
+}
+
+
 @app.get("/status")
 def status() -> dict:
-    """Lebenszeichen: Modus (offline/mistral), Dokumente, Graph-Groesse."""
+    """Lebenszeichen: Anbieter, Modell, Dokumente, Graph-Groesse.
+
+    Zeigt NIE den API-Key – nur ob einer konfiguriert ist.
+    """
+    info = llm_zusammenfassung()
     return {
         "status": "ok",
-        "modus": "offline" if is_offline_mode() else "mistral",
+        "modus": info["anbieter"],
+        "anbieter": ANBIETER_LABEL.get(info["anbieter"], info["anbieter"]),
+        "modell": info["modell"],
+        "endpoint": info["base_url"].replace("https://", "").replace("http://", ""),
+        "api_key": info["api_key"],
         "dokumente": len(WISSENSBASIS.liste()),
         "graph_knoten": len(GRAPH.nodes()),
         "graph_kanten": len(GRAPH.relationships()),

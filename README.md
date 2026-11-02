@@ -30,9 +30,21 @@ Noch nie programmiert? Kein Terminal, keine API, kein LLM gesehen? **Genau richt
 
 **Das Finale:** [`final-project/knowledge-research-agent/`](final-project/knowledge-research-agent/README.md) – dein Build-3-Assistent als lauffähiges System: FastAPI-Backend, Streamlit-Frontend (Chat, interaktiver Graph-Explorer, Dokument-Upload, Prompt-Labor, Freigaben), Docker Compose inkl. Neo4j.
 
+## 🖥️ Wo läuft deine KI? Du entscheidest (nur `.env`, kein Code!)
+
+Die Akademie ist **anbieter-unabhängig** – dieselben Aufgaben laufen mit:
+
+- **Mistral Cloud** (Standard-Beispiel): `MISTRAL_API_KEY` in `.env` eintragen.
+- **Lokalem AI-Server** (LM Studio, Ollama, vLLM, LocalAI, llama.cpp …): `LLM_BASE_URL` + `LLM_MODEL` konfigurieren.
+- **Jedem OpenAI-kompatiblen Endpoint** – auch im Netzwerk oder in der Cloud.
+- **Ohne alles:** Offline-Modus (Simulation – jede Lösung läuft kostenlos und komplett).
+
+Verbindung testen nach jeder Änderung: `python -m tools.test_llm_connection`
+Alles Wissenswerte: **[docs/local-ai-server.md](docs/local-ai-server.md)**
+
 ## 💰 Kosten: fast alles ist kostenlos
 
-Zwei Modi, automatisch gewählt: **Ohne API-Key** läuft jede Lösung im Offline-Modus (klar gekennzeichnete `[OFFLINE]`-Antworten; Retrieval, Graphen, Workflows und Freigaben sind trotzdem echt). **Mit** `MISTRAL_API_KEY` in `.env` wird alles zu echten Mistral-Anwendungen. Aufgaben mit echten API-Kosten sind mit ⚠️ markiert.
+Zwei Modi, automatisch gewählt: **Ohne API-Key** läuft jede Lösung im Offline-Modus (klar gekennzeichnete `[OFFLINE]`-Antworten; Retrieval, Graphen, Workflows und Freigaben sind trotzdem echt). **Mit** `MISTRAL_API_KEY` in `.env` wird alles zu echten Mistral-Anwendungen – oder zu deinem lokalen Server. Aufgaben mit echten API-Kosten sind mit ⚠️ markiert.
 
 ## Schnellstart
 
@@ -40,6 +52,8 @@ Zwei Modi, automatisch gewählt: **Ohne API-Key** läuft jede Lösung im Offline
 python -m venv .venv                       # 1. Umgebung
 source .venv/bin/activate                  #    Windows: .venv\Scripts\activate
 pip install -r requirements.txt            # 2. Abhängigkeiten
+cp .env.example .env                      #    (optional: Key oder lokalen Server eintragen)
+python -m tools.test_llm_connection        #    Verbindung testen
 python3 00-setup/solutions/hello_world.py  # 3. Los geht's!
 ```
 
@@ -57,4 +71,4 @@ Wenn du durch bist, hast du die Stationen erlebt:
 
 ## Weiterführendes
 
-[Lernfahrplan](docs/learning-roadmap.md) · [Glossar](docs/glossary.md) · [Troubleshooting](docs/troubleshooting.md) · [Python-Basics](docs/python-basics.md) · [Architektur](docs/architecture.md) · [Mitmachen](CONTRIBUTING.md) · [Lizenz](LICENSE) (MIT)
+[Lernfahrplan](docs/learning-roadmap.md) · [Lokale AI-Server](docs/local-ai-server.md) · [Glossar](docs/glossary.md) · [Troubleshooting](docs/troubleshooting.md) · [Python-Basics](docs/python-basics.md) · [Architektur](docs/architecture.md) · [Mitmachen](CONTRIBUTING.md) · [Lizenz](LICENSE) (MIT)

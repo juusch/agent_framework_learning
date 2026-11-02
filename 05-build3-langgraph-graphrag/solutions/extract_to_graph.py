@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from lernakademie.graph_extraction import extrahiere, fuelle_graph
 from lernakademie.graph_store import GraphStore
-from lernakademie.mock_llm import is_offline_mode
+from lernakademie.llm_client import is_offline_mode
 
 TEXT = ("Anna arbeitet bei Acme und gehoert zu Engineering. "
         "Ben arbeitet bei Acme. "

@@ -74,4 +74,10 @@
 
 **Streamlit** – Frontend-Framework in reinem Python (kein HTML/JS): Skript wird bei Interaktion neu ausgeführt, Zustand lebt in `st.session_state`. Gewählt für die Akademie, weil Lernende ohne Web-Ausbildung sofort Oberflächen bauen können.
 
+**Lokaler AI-Server** – Ein Programm auf deinem eigenen Computer, das KI-Modelle bereitstellt (LM Studio, Ollama, vLLM, LocalAI, llama.cpp …). Vorteile: kostenlos nach dem Download, privat, schnell. **Metapher:** dein eigenes Restaurant nebenan statt des Cloud-Restaurants.
+
+**OpenAI-kompatibel** – Ein Server „spricht" dieselbe Anfrage-Sprache wie die OpenAI-API (gemeinsamer Stecker/HDMI-Prinzip). Solange dein Server `/v1/chat/completions` anbietet, kann die Akademie mit ihm reden – ob lokal oder in der Cloud.
+
+**Base-URL** – Die Adresse deines KI-Servers (`LLM_BASE_URL`): **WO** die KI lebt. Beispiele: `http://localhost:1234/v1` (eigener Rechner), `http://192.168.1.50:1234/v1` (Heimnetzwerk), `https://api.mistral.ai/v1` (Cloud).
+
 **API-Endpunkt** – Eine Adresse + Methode am Server (POST /chat), an die Clients JSON schicken und JSON zurückerhalten. **Metapher:** ein Schalter im eigenen Restaurant – der Kellner (FastAPI) nimmt Bestellungen dagegen an.

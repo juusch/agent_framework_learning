@@ -10,7 +10,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from lernakademie.mock_llm import get_mistral_client, is_offline_mode
+from lernakademie.llm_client import get_api_client, is_offline_mode
 
 MODELL = "mistral-small-latest"
 MAX_NACHRICHTEN = 20  # Budget-Kontrolle fuer das Kontextfenster
@@ -45,7 +45,7 @@ def main() -> None:
     if is_offline_mode():
         print("OFFLINE-Modus: Der Chatbot spiegelt deine Eingaben simuliert.\n")
 
-    client = get_mistral_client()
+    client = get_api_client()
     messages = [{"role": "system", "content": PERSONA}]
 
     print("Chatbot gestartet. Tippe 'exit' oder 'fertig' zum Beenden.")

@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field
 
 from lernakademie.graph_store import GraphStore
-from lernakademie.mock_llm import get_chat_model, is_offline_mode
+from lernakademie.llm_client import get_chat_model, is_offline_mode
 
 
 class Extraktion(BaseModel):

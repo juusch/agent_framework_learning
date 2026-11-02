@@ -14,7 +14,7 @@ from lernakademie.graph_extraction import (
     fuehre_sicher_aus, ist_sicher,
 )
 from lernakademie.graph_store import GraphStore
-from lernakademie.mock_llm import is_offline_mode
+from lernakademie.llm_client import is_offline_mode
 
 TEXT = ("Anna arbeitet bei Acme und gehoert zu Engineering. "
         "Ben arbeitet bei Acme. "

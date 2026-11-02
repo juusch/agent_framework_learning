@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-from lernakademie.mock_llm import get_chat_model, is_offline_mode
+from lernakademie.llm_client import get_chat_model, is_offline_mode
 
 BEISPIELTEXT = (
     "Python ist eine Programmiersprache, die 1991 von Guido van Rossum "

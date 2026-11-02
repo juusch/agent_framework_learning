@@ -9,7 +9,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from lernakademie.mock_llm import is_offline_mode
+from lernakademie.llm_client import is_offline_mode
 
 # Testfragen mit erwarteten Eigenschaften (Kriterien):
 EVAL_Faelle = [

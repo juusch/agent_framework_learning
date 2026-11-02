@@ -9,11 +9,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from pydantic import BaseModel
 
-from lernakademie.mock_llm import (
+from lernakademie.llm_client import (
     OFFLINE_PREFIX,
     MockChatModel,
     get_chat_model,
-    get_mistral_client,
+    get_api_client,
 )
 from lernakademie.offline_embeddings import OfflineKeywordEmbeddings
 
@@ -57,7 +57,7 @@ def test_structured_output_offline():
 
 
 def test_mock_mistral_client():
-    client = get_mistral_client()
+    client = get_api_client()
     response = client.chat.complete(
         messages=[{"role": "user", "content": "Wie geht es dir?"}]
     )
@@ -77,7 +77,7 @@ def test_mock_tool_calling_react_agent():
     """Der Offline-Mock simuliert Tool-Calling so, dass create_react_agent funktioniert."""
     from langchain_core.tools import tool
     from langchain.agents import create_agent
-    from lernakademie.mock_llm import get_chat_model
+    from lernakademie.llm_client import get_chat_model
 
     @tool
     def wortzaehler(text: str) -> str:

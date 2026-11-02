@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from lernakademie.mock_llm import is_offline_mode
+from lernakademie.llm_client import is_offline_mode
 from lernakademie.offline_embeddings import KEYWORDS, get_embeddings
 
 DATA = Path(__file__).resolve().parents[2] / "data"

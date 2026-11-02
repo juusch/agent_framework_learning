@@ -12,7 +12,8 @@ Bis Modul 0 war dein Programm allein auf der Welt. Ab jetzt redet es mit einer K
 Klassische Logik (Fahrkartenautomat) ist exakt und starr; ein LLM (belesener Assistent) versteht freie Formulierungen, kann aber irren (**Halluzination**). Beides wird dein Assistent später kombinieren. Details: [`solutions/logik_vs_ki_notizen.md`](../solutions/logik_vs_ki_notizen.md).
 
 ## Deine Mission
-1. Schreibe `first_api_call.py`: Client initialisieren (Key aus `.env`, **nie im Code**), System-Rolle „Du bist ein freundlicher Erklärbbär für Technik-Anfänger" + User-Rolle „Erkläre in zwei Sätzen, was eine API ist" senden, Antwort ausgeben.
+0. **(Neu)** Führe `python -m tools.test_llm_connection` aus – du siehst, welcher Anbieter aktiv ist (offline / Mistral / lokaler Server). Diese Konfiguration gilt für alle Aufgaben.
+1. Schreibe `first_api_call.py`: Client über `get_api_client()` holen (liest Key/URL **nicht selbst** aus `.env`), System-Rolle „Du bist ein freundlicher Erklärbbär für Technik-Anfänger" + User-Rolle „Erkläre in zwei Sätzen, was eine API ist" senden, Antwort ausgeben.
 2. Fehlerbehandlung: 401 (Key), 429 (Rate-Limit), Netzwerk → deutsche Meldungen statt Traceback.
 3. **Token-Verständnis:** Führe `examples/token_zaehler.py` aus und schätze: Wie viele Tokens hat diese Aufgabe gekostet? (Faustregel: `zeichen // 4`)
 
@@ -22,7 +23,7 @@ Klassische Logik (Fahrkartenautomat) ist exakt und starr; ein LLM (belesener Ass
 - [ ] Du kannst die drei Nachrichten-Rollen benennen und erklären, was ein Token kostet.
 
 ## Hinweise
-1. Client: `from mistralai import Mistral; Mistral(api_key=os.environ["MISTRAL_API_KEY"])` – oder `lernakademie.get_mistral_client()` (kapselt Key/Offline).
+1. Client: `lernakademie.llm_client.get_api_client()` – liefert je nach `.env` den Mistral-SDK-Client, einen OpenAI-kompatiblen Client **oder** die Offline-Simulation. Deine Aufgabe bleibt identisch.
 2. Antwort: `response.choices[0].message.content`
 3. Kontextfenster = Schreibtischgröße: nur begrenzt viele Tokens passen gleichzeitig drauf.
 

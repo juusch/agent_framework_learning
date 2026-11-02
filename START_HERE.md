@@ -72,7 +72,16 @@ Das Terminal ist dein wichtigstes Werkzeug. Öffne es (in VS Code: Menü *Termin
 
 Herzlichen Glückwunsch – das war dein **Hello World**! 🎉
 
-## Schritt 6: Weiter geht's
+## Schritt 6: Deine KI-Quelle wählen (optional – später jederzeit änderbar)
+
+Die Akademie läuft **sofort ohne alles** (Offline-Modus). Wenn du echte KI-Antworten willst, hast du zwei Optionen – **beide nur über `.env`, ohne Codeänderung**:
+
+- **Mistral Cloud:** `MISTRAL_API_KEY` in `.env` eintragen ([kostenloser Key](https://console.mistral.ai/)).
+- **Lokaler AI-Server** (LM Studio, Ollama, …): `LLM_BASE_URL` + `LLM_MODEL` eintragen.
+
+Danach prüfen: `python -m tools.test_llm_connection` — Details: [docs/local-ai-server.md](docs/local-ai-server.md).
+
+## Schritt 7: Weiter geht's
 
 Öffne jetzt [`00-setup/README.md`](00-setup/README.md) und arbeite die erste richtige Aufgabe durch.
 

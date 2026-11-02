@@ -2,6 +2,8 @@
 
 **Schwierigkeit:** Mittel · **Zeit:** ~60–90 Min · ⚠️ **Kosten:** LLM-Call nur mit Key
 
+> **Benötigte Modell-Fähigkeit:** Structured Output / JSON (für die `Kurzanalyse`). Nicht jedes lokale Modell beherrscht das – Details & Auswege: [docs/local-ai-server.md](../../docs/local-ai-server.md) (Abschnitt Fähigkeiten).
+
 ## Lernziel
 Du baust die **Build-2-Version deines Personal Knowledge Assistant** komplett: Retrieval → Kontext in die Chain → Antwort mit Quellen – plus strukturierte Ausgaben (Pydantic) und das ehrliche „Weiß ich nicht".
 

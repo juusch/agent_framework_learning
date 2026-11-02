@@ -2,6 +2,8 @@
 
 **Schwierigkeit:** Fortgeschritten · **Zeit:** ~60–90 Min · ⚠️ **Kosten:** mit Key LLM-Calls (offline: Regel-Fallback)
 
+> **Benötigte Modell-Fähigkeit:** Structured Output / JSON (für die Extraktion). Nicht jedes lokale Modell beherrscht das – im Offline-Modus liefert die Simulation immer gültige Strukturen. Details: [docs/local-ai-server.md](../../docs/local-ai-server.md)
+
 ## Lernziel
 Du lässt ein LLM Entitäten und Beziehungen aus Text extrahieren, fühlst den Graph mit **Entity Resolution** – und übersetzt natürliche Fragen in Cypher, abgesichert durch eine **Whitelist**.
 

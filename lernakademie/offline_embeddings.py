@@ -21,7 +21,7 @@ from typing import List
 
 from langchain_core.embeddings import Embeddings
 
-from lernakademie.config import is_offline_mode
+from lernakademie.config import PROVIDER_MISTRAL, PROVIDER_OFFLINE, PROVIDER_OPENAI, get_provider
 
 # Jedes Thema bekommt eine feste Dimension im Vektor.
 KEYWORDS: List[str] = [
@@ -63,12 +63,37 @@ class OfflineKeywordEmbeddings(Embeddings):
 
 
 def get_embeddings() -> Embeddings:
-    """Liefert Embeddings: echt (Mistral) oder offline (Schluesselwoerter)."""
-    if is_offline_mode():
-        return OfflineKeywordEmbeddings()
-    from langchain_mistralai import MistralAIEmbeddings
+    """Liefert Embeddings – abhaengig vom konfigurierten Anbieter.
 
-    return MistralAIEmbeddings(model="mistral-embed")
+    - offline oder openai_compatible (Standard): Schluesselwort-Embeddings.
+      Sie laufen UEBERALL (auch ohne Embeddings-faehigen Server) und sind
+      deterministisch – die RAG-Mechanik bleibt voll uebbar.
+    - mistral: echte Mistral-Embeddings (semantische Suche).
+
+    Fortgeschritten: Mit EMBEDDINGS=openai_compatible + EMBEDDINGS_MODEL
+    kannst du die Embeddings-Schnittstelle deines OpenAI-kompatiblen
+    Servers nutzen (falls er /v1/embeddings anbietet).
+    """
+    import os
+
+    modus = os.environ.get("EMBEDDINGS", "auto").strip().lower()
+    provider = get_provider()
+
+    if modus == "openai_compatible" and provider != PROVIDER_OFFLINE:
+        from langchain_openai import OpenAIEmbeddings
+
+        from lernakademie.config import get_api_key, get_base_url
+
+        return OpenAIEmbeddings(
+            model=os.environ.get("EMBEDDINGS_MODEL", "text-embedding-all-minilm-l6-v2"),
+            base_url=get_base_url(),
+            api_key=get_api_key() or "not-required",
+        )
+    if provider == PROVIDER_MISTRAL:
+        from langchain_mistralai import MistralAIEmbeddings
+
+        return MistralAIEmbeddings(model="mistral-embed")
+    return OfflineKeywordEmbeddings()
 
 
 def hat_bezug(text: str) -> bool:

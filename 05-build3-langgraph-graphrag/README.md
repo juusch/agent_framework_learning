@@ -18,6 +18,8 @@ flowchart TB
 
 **Wichtig:** Der Knowledge Graph ist **externes, strukturiertes Wissen**; LangGraph **steuert den Workflow**. Beide bleiben getrennt – austauschbar, testbar.
 
+**Architektur-Lektion:** Der Graph **bekommt ein fertig konfiguriertes Modell** (`get_chat_model()`) – er interessiert sich nicht dafür, ob dahinter Mistral, ein lokaler Server oder die Simulation steckt. Modell-Anbieter wechseln = `.env` ändern, **Graph bleibt unverändert**.
+
 | # | Aufgabe | Zeit | API? |
 |---|---|---|---|
 | 5.1 | [`tasks/01-langgraph-workflows.md`](tasks/01-langgraph-workflows.md) – State, Nodes, Routing, Loops | ~60–90 Min | keine |

@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from lernakademie.mock_llm import get_mistral_client, is_offline_mode
+from lernakademie.llm_client import get_api_client, is_offline_mode
 
 MODELL = "mistral-small-latest"
 
@@ -45,7 +45,7 @@ def main() -> None:
         print("OFFLINE-Modus: Antworten sind simuliert und daher identisch.")
         print("Mit MISTRAL_API_KEY siehst du echte Verhaltensunterschiede.\n")
 
-    client = get_mistral_client()
+    client = get_api_client()
 
     # Experiment A: die ROLLE aendern
     prompt = "Erkläre, was Regenbogen sind – in maximal 3 Saetzen."

@@ -32,6 +32,32 @@
 **Antworten beginnen mit `[OFFLINE]`**
 - Das ist der Offline-Modus. Entweder fehlt der Key in `.env`, oder `ACADEMY_OFFLINE=1` ist gesetzt. Kein Fehler – nur keine echten LLM-Aufrufe.
 
+## Lokale AI-Server / OpenAI-kompatible Endpoints
+
+**`Connection refused` beim Verbindungstest**
+- Läuft dein Server? (LM Studio/Ollama starten.)
+- Stimmt der Port in `LLM_BASE_URL`? Prüfe die Doku deines Servers.
+
+**`404 ... /chat/completions`**
+- Die URL passt nicht: meist fehlt das `/v1` am Ende (oder ist zu viel).
+- Beispiel korrekt: `http://localhost:1234/v1`.
+
+**`401`/`403`**
+- Dein Server erwartet doch einen Key → `LLM_API_KEY` in `.env` setzen.
+- Umgekehrt: ein alter Key stört? → `LLM_API_KEY=` leer lassen.
+
+**`model not found`**
+- `LLM_MODEL` muss exakt dem Namen entsprechen, den der Server meldet.
+
+**Konfigurations-Fehler (`ValueError` aus `lernakademie/config.py`)**
+- Die Meldung nennt die fehlende Variable (`LLM_BASE_URL` oder `LLM_MODEL`) – einfach in `.env` ergänzen.
+- Ungültiger `LLM_PROVIDER`? Erlaubt: `mistral`, `openai_compatible`, `offline` (oder leer).
+
+**Strukturierte Ausgaben schlagen fehl / Agent ruft Tools nicht auf**
+- Nicht jedes (lokale) Modell beherrscht Tool-Calling bzw. JSON. Prüfe die Fähigkeiten-Tabelle in [local-ai-server.md](local-ai-server.md) – und übe im Zweifel im Offline-Modus (Simulation liefert immer gültige Strukturen).
+
+**Verbindung schnell prüfen:** `python -m tools.test_llm_connection`
+
 ## Python-Grundlagen
 
 **`SyntaxError`**

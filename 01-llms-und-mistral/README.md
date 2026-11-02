@@ -7,7 +7,9 @@
 | 1.1 | [`tasks/01-erster-api-call.md`](tasks/01-erster-api-call.md) – Nachrichten, Tokens, Kosten | ~60 Min | ⚠️ nur mit Key |
 | 1.2 | [`tasks/02-chatbot.md`](tasks/02-chatbot.md) – Chatbot mit Gedächtnis & Temperature | ~60 Min | ⚠️ nur mit Key |
 
-**Ohne Key:** Alle Lösungen laufen automatisch im Offline-Modus (`[OFFLINE]`-Antworten) – der Code-Ablauf ist identisch. Optionaler Key: [console.mistral.ai](https://console.mistral.ai/), Eintrag in `.env`.
+**Anbieter-losgelöst:** Mistral ist das Standard-Beispiel – aber dieselben Aufgaben laufen auch mit **deinem lokalen AI-Server** oder jedem OpenAI-kompatiblen Endpoint. Umgeschaltet wird **nur in `.env`**, nie im Code: [docs/local-ai-server.md](../docs/local-ai-server.md). Ohne jede Konfiguration läuft alles im Offline-Modus (`[OFFLINE]`-Antworten, identischer Ablauf). Verbindung prüfen: `python -m tools.test_llm_connection`
+
+> 💡 **Lektion „Dein KI-Modell ist austauschbar":** Ob Mistral, ein lokales Llama oder Qwen antwortet – die Aufgabe *„Sende eine Nachricht an ein LLM"* bleibt dieselbe. Diese Trennung (Anwendung → Schnittstelle → Anbieter) ist eine der wichtigsten Architektur-Erfahrungen der Akademie.
 
 **Ausführen:**
 ```bash

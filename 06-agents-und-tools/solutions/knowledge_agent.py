@@ -15,7 +15,7 @@ from langchain_chroma import Chroma
 from langchain_core.tools import tool
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from lernakademie.mock_llm import get_chat_model, is_offline_mode
+from lernakademie.llm_client import get_chat_model, is_offline_mode
 from lernakademie.offline_embeddings import get_embeddings, hat_bezug
 
 DATA = Path(__file__).resolve().parents[2] / "data"

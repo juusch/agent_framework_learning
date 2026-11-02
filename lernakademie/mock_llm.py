@@ -23,7 +23,7 @@ from langchain_core.outputs import ChatGeneration, ChatResult
 from langchain_core.runnables import RunnableLambda
 from pydantic import BaseModel, PrivateAttr
 
-from lernakademie.config import get_model_name, has_mistral_key, is_offline_mode
+from lernakademie.config import is_offline_mode
 
 OFFLINE_PREFIX = "[OFFLINE]"
 
@@ -251,23 +251,6 @@ class MockChatModel(BaseChatModel):
         return self
 
 
-def get_chat_model(temperature: float = 0.7) -> Any:
-    """Liefert das Chat-Modell je nach Modus.
-
-    - Echter Modus: ChatMistralAI (Mistral AI als primarer Provider).
-    - Offline-Modus: MockChatModel (kein Key, keine Kosten).
-    """
-    if is_offline_mode():
-        return MockChatModel()
-    from langchain_mistralai import ChatMistralAI
-
-    return ChatMistralAI(
-        model=get_model_name(),
-        temperature=temperature,
-        api_key=__import__("os").environ["MISTRAL_API_KEY"],
-    )
-
-
 # ---------------------------------------------------------------------------
 # Mock-Client fuer Stufe 2 (direkte Mistral-API ohne LangChain)
 # ---------------------------------------------------------------------------
@@ -311,21 +294,8 @@ class MockMistralClient:
         self.chat = _Chat()
 
 
-def get_mistral_client() -> Any:
-    """Liefert einen Mistral-Client: echt (mit Key) oder simuliert (offline)."""
-    if is_offline_mode():
-        return MockMistralClient()
-    from mistralai import Mistral
-
-    return Mistral(api_key=__import__("os").environ["MISTRAL_API_KEY"])
-
-
 __all__ = [
     "OFFLINE_PREFIX",
     "MockChatModel",
     "MockMistralClient",
-    "get_chat_model",
-    "get_mistral_client",
-    "has_mistral_key",
-    "is_offline_mode",
 ]

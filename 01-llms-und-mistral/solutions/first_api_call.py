@@ -12,7 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from lernakademie.mock_llm import get_mistral_client, is_offline_mode
+from lernakademie.llm_client import get_model_name, get_api_client, is_offline_mode
 
 SYSTEM_NACHRICHT = "Du bist ein freundlicher Erklaerbaer fuer Technik-Anfaenger."
 USER_NACHRICHT = "Erkläre in zwei Saetzen, was eine API ist."
@@ -21,7 +21,7 @@ USER_NACHRICHT = "Erkläre in zwei Saetzen, was eine API ist."
 def sende_nachricht(client) -> str:
     """Sendet die Nachrichten und liefert die Antwort als Text zurueck."""
     antwort = client.chat.complete(
-        model="mistral-small-latest",
+        model=get_model_name(),
         messages=[
             {"role": "system", "content": SYSTEM_NACHRICHT},
             {"role": "user", "content": USER_NACHRICHT},
@@ -34,7 +34,7 @@ def main() -> None:
     if is_offline_mode():
         print("Hinweis: Kein MISTRAL_API_KEY gesetzt -> OFFLINE-Modus.\n")
 
-    client = get_mistral_client()
+    client = get_api_client()
     try:
         inhalt = sende_nachricht(client)
     except Exception as fehler:  # Netz, Key, Rate-Limit ... alles abfangen

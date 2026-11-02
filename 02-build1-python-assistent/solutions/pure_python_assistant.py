@@ -6,7 +6,7 @@ weist, was das Framework fuer dich uebernimmt.
 Pipeline: Dokumente laden -> Abschnitte schneiden -> Wort-Ueberlappung
 scoring -> Prompt von Hand bauen -> Mistral direkt aufrufen.
 
-Offline-Modus: get_mistral_client() liefert ohne API-Key eine
+Offline-Modus: get_api_client() liefert ohne API-Key eine
 Simulation – der Ablauf bleibt identisch, kostenlos uebbar.
 """
 
@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from lernakademie.mock_llm import get_mistral_client, is_offline_mode
+from lernakademie.llm_client import get_model_name, get_api_client, is_offline_mode
 
 DATA = Path(__file__).resolve().parents[2] / "data"
 
@@ -88,10 +88,10 @@ def beantworte(frage: str, abschnitte: list[dict] | None = None) -> dict:
         return {"antwort": NICHT_GEFUNDEN, "quellen": []}
 
     prompt = baue_prompt(frage, relevante)
-    client = get_mistral_client()
+    client = get_api_client()
     try:
         antwort = client.chat.complete(
-            model="mistral-small-latest",
+            model=get_model_name(),
             messages=[{"role": "user", "content": prompt}],
         )
         text = antwort.choices[0].message.content

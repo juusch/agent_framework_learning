@@ -38,12 +38,22 @@ status = api_status()
 with st.sidebar:
     st.title("🎓 Knowledge Agent")
     if status:
-        modus = status["modus"]
-        farbe = "🟢" if modus == "mistral" else "🟡"
-        st.success(f"{farbe} Backend erreichbar\n\nModus: **{modus}**")
+        # Nicht-sensible Konfigurationsanzeige (NIE der API-Key selbst!):
+        farbe = {"mistral": "🟢", "openai_compatible": "🟢",
+                "offline": "🟡"}.get(status.get("modus"), "🟡")
+        st.success(f"{farbe} Backend erreichbar")
+        st.markdown(f"**Anbieter:** {status.get('anbieter', status['modus'])}")
+        if status.get("modell"):
+            st.markdown(f"**Modell:** `{status['modell']}`")
+        if status.get("endpoint"):
+            st.markdown(f"**Endpoint:** `{status['endpoint']}`")
         st.caption(f"{status['dokumente']} Dokumente | "
                    f"{status['graph_knoten']} Graph-Knoten | "
                    f"{status['graph_kanten']} Kanten")
+        if status.get("modus") == "offline":
+            st.caption("Offline: Retrieval/Graph/Workflow sind echt – "
+                       "nur LLM-Formulierungen simuliert. Andere KI-Quelle? "
+                       "Siehe .env.example + docs/local-ai-server.md")
     else:
         st.error("Backend nicht erreichbar!")
         st.code("uvicorn backend.api.main:app --port 8000",
@@ -85,5 +95,6 @@ if status and status["modus"] == "offline":
     st.info(
         "Offline-Modus aktiv: Retrieval, Graph, Workflow und Freigaben sind "
         "echt – nur die Sprachformulierung des Modells ist simuliert. "
-        "Mit MISTRAL_API_KEY in .env wird alles echt."
+        "Andere KI-Quelle (Mistral, lokaler Server, jeder OpenAI-kompatible "
+        "Endpoint): nur .env aendern – siehe docs/local-ai-server.md."
     )

@@ -2,6 +2,8 @@
 
 **Schwierigkeit:** Mittel · **Zeit:** ~60 Min · ⚠️ **Kosten:** nur mit Key (offline: Tool-Calling simuliert)
 
+> **Benötigte Modell-Fähigkeit:** Tool-Calling. Wenn dein (lokales) Modell keine Werkzeuge unterstützt, ruft der Agent Tools nicht auf – dann im Offline-Modus üben (Simulation zeigt den kompletten Loop) oder ein tool-fähiges Modell wählen. Details: [docs/local-ai-server.md](../../docs/local-ai-server.md)
+
 ## Lernziel
 Du gibst einem LLM Python-Funktionen als **Tools** und beobachtest den Agenten-Loop: planen → Werkzeug wählen → ausführen → antworten.
 

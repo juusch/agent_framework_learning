@@ -41,7 +41,7 @@ streamlit run "final-project/knowledge-research-agent/frontend/app.py"
 #    Browser öffnet sich automatisch (http://localhost:8501)
 ```
 
-> **Offline-Modus:** Ohne `MISTRAL_API_KEY` läuft alles kostenfrei: Retrieval, Graph, Workflow, Freigaben sind echt; nur die Sprachformulierung des LLM ist simuliert (`[OFFLINE]`). Mit Key in `.env` (siehe `.env.example`) wird Mistral für Klassifikation und Antwortformulierung genutzt.
+> **Anbieter-unabhängig (zentrale Konfiguration):** Diese Anwendung nutzt **dieselbe** Konfigurationsschicht wie die ganze Akademie (`lernakademie/config.py`). Sie läuft gegen Mistral Cloud, einen **lokalen AI-Server** (LM Studio, Ollama, vLLM …) oder jeden OpenAI-kompatiblen Endpoint – gesteuert **nur über `.env`**, ohne Codeänderung. Verbindung prüfen: `python -m tools.test_llm_connection`. Ohne jede Konfiguration läuft alles kostenfrei im Offline-Modus: Retrieval, Graph, Workflow und Freigaben sind echt; nur die Sprachformulierung des LLM ist simuliert (`[OFFLINE]`). Details: [docs/local-ai-server.md](../../docs/local-ai-server.md).
 
 ## Mit Docker Compose (inkl. Neo4j)
 
@@ -93,4 +93,6 @@ Jede Antwort zeigt ihre **Quellen** (Dokument-Fundstellen vs. Graph-Fakten) – 
 - API-Keys nur in `.env` (nie committen – siehe Akademie-Stufe 9).
 - Graph-Schreibzugriffe **nur** über den Freigabe-Workflow (interrupt + resume).
 - LLM-generierte Abfragen werden vor Ausführung durch die lesende Whititelist geprüft.
+- `/status` und das Frontend zeigen Anbieter, Modell und Endpoint – **niemals** den API-Key.
+- Lokaler Server übers Netzwerk? Authentifizierung aktivieren – Sicherheitshinweise: [docs/local-ai-server.md](../../docs/local-ai-server.md).
 - Diese Anwendung ist ein **Lernsystem für den lokalen Betrieb** – vor einer Veröffentlichung im Internet: Stufe 15.3/9 (Auth, HTTPS, Rate-Limits) umsetzen.

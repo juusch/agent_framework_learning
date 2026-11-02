@@ -21,7 +21,7 @@ Erinnerung an Build 1: Prompt von Hand bauen, Client callen, Antwort extrahieren
 ## Hinweise
 1. Aktuelle Imports: `from langchain_core.prompts import ChatPromptTemplate`, `from langchain_core.output_parsers import StrOutputParser`
 2. Chain: `chain = prompt | modell | StrOutputParser()`
-3. `lernakademie.get_chat_model()` liefert offline den Mock – der **Ablauf** bleibt identisch.
+3. `lernakademie.llm_client.get_chat_model()` liefert das **konfigurierte** Modell – Mistral, dein lokaler Server oder offline die Simulation. Die Chain merkt keinen Unterschied: genau das ist Provider-Unabhängigkeit.
 
 ## Reflexionsfragen
 1. Zähle: Wie viele Runnables stecken in `prompt | modell | parser`? (3!)
