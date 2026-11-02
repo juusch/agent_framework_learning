@@ -10,8 +10,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from api_config import API_URL
 
-from api_config import API_URL
-
 st.title("✋ Freigaben – Fakten in den Knowledge Graph")
 st.caption("Destruktive Operationen NUR mit deiner Zustimmung: Vorschlag "
            "prüfen → genehmigen oder ablehnen → Audit-Log führt Buch.")

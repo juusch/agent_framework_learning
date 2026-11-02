@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```bash
 pip list | findstr langchain      # Windows
 pip list | grep langchain         # macOS/Linux
-python 01-python-fundamentals/examples/venv_demonstration.py
+python 00-setup/examples/venv_demonstration.py
 ```
 
 → Wenn das Skript die Paketversionen ausgibt, ist alles korrekt verkabelt.

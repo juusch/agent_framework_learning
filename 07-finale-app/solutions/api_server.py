@@ -1,7 +1,6 @@
 """Aufgabe 15.1 – Referenzloesung: FastAPI-Backend mit Chat-Endpunkt.
 
-Start:  uvicorn 15-frontend.solutions.api_server:app --reload
-        (vom Projektordner aus; oder Datei direkt: uvicorn api_server:app)
+Start:  uvicorn --app-dir 07-finale-app/solutions api_server:app --reload
 Doku:    http://localhost:8000/docs
 Offline: laeuft komplett ohne Key – Modus wird im /status gemeldet.
 """

@@ -36,5 +36,5 @@ die "Ontologie" der Anwendung (vgl. Stufe 10.2).
 
 Die Anwendung nutzt den In-Memory-`GraphStore` der Akademie. Für
 Persistenz und echte Neo4j-Abfragen: `docker compose up` startet Neo4j;
-die Brücke zeigt `11-graph-databases/solutions/python_neo4j_bridge.py`,
+die Brücke zeigt `04-knowledge-graphs/solutions/python_neo4j_bridge.py`,
 ein optionaler Seeder liegt unter `database/seed/seed_to_neo4j.py`.

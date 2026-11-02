@@ -19,11 +19,13 @@ from __future__ import annotations
 from typing import Any
 
 from lernakademie import config
-from lernakademie.config import (  # Re-Exports: ein Import fuer die Aufgaben
+from lernakademie.config import (  # noqa: F401  (bewusste Re-Exports: ein Import fuer die Aufgaben)
     PROVIDER_MISTRAL, PROVIDER_OFFLINE, PROVIDER_OPENAI, get_model_name,
     is_offline_mode, llm_zusammenfassung, maske_geheimnis,
 )
-from lernakademie.mock_llm import OFFLINE_PREFIX, MockChatModel, MockMistralClient
+from lernakademie.mock_llm import (  # noqa: F401  (Re-Export fuer Aufgaben)
+    OFFLINE_PREFIX, MockChatModel, MockMistralClient,
+)
 
 _DUMMY_KEY = "not-required"  # manche Clients verlangen einen nicht-leeren Key
 

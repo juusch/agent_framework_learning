@@ -18,9 +18,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # Projektordner
 
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
-from langgraph.types import Command, interrupt
+from langgraph.types import interrupt
 
-from backend.retrieval.graph_api import baue_wissens_graph
+
 
 AUDIT_LOG: list[str] = []  #prozessglobal, fuer GET /audit
 
@@ -70,6 +70,3 @@ def baue_freigabe_workflow(store):
     graph.add_edge("anlegen", END)
     return graph.compile(checkpointer=MemorySaver())
 
-
-def _dummy_store():  # Helper für den Bau (siehe baue_freigabe_workflow-Doku)
-    return baue_wissens_graph()

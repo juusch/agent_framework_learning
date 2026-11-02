@@ -40,7 +40,7 @@ Baue `pure_python_assistant.py` **ohne LangChain-Imports**:
 ## Hinweise
 1. Zerlegen: `text.split("## ")` – erster Eintrag ist der Titel-Bereich, danach je `titel\n\n...inhalt`.
 2. Wortvergleich: `set(frage.lower().split()) & set(abschnitt["text"].lower().split())`
-3. Client: `lernakademie.get_mistral_client()` (kapselt Key + Offline-Simulation).
+3. Client: `lernakademie.llm_client.get_api_client()` (kapselt Anbieter + Offline-Simulation).
 4. Die `data/`-Handbücher sind die gleichen wie im Capstone – du kennst die Antworten schon!
 
 ## Reflexionsfragen

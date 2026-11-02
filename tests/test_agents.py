@@ -4,7 +4,6 @@ import importlib.util
 import os
 from pathlib import Path
 
-import pytest
 
 os.environ.setdefault("ACADEMY_OFFLINE", "1")
 

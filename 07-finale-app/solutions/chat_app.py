@@ -1,8 +1,8 @@
 """Aufgabe 15.2 – Referenzloesung: Streamlit-Chat mit Backend-Bruecke.
 
 Start-Reihenfolge:
-    1) uvicorn 15-frontend.solutions.api_server:app --reload
-    2) streamlit run 15-frontend/solutions/chat_app.py
+    1) uvicorn --app-dir 07-finale-app/solutions api_server:app --reload
+    2) streamlit run 07-finale-app/solutions/chat_app.py
 
 Konzept-Unterscheidung fuer Lernende:
 - VERSTEHEN: session_state, requests-Bruecke, Fehler-UX
@@ -28,7 +28,7 @@ with st.sidebar:
             st.caption("Ohne API-Key: Antworten sind [OFFLINE]-Simulationen.")
     except requests.exceptions.ConnectionError:
         st.error("Backend nicht erreichbar!")
-        st.caption("Starte es mit: uvicorn 15-frontend.solutions.api_server:app")
+        st.caption("Starte es mit: uvicorn --app-dir 07-finale-app/solutions api_server:app")
     st.divider()
     temperatur = st.slider("Temperature (Bonus-Widget)", 0.0, 1.0, 0.0, 0.1)
     st.caption("Wird als Payload mitgeschickt – die UI steuert Backend-Verhalten.")

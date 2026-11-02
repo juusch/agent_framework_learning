@@ -11,7 +11,7 @@ Warum so simpel?
   Umschreibungen statt nur exakter Schluesselwoerter.
 
 Die Schluesselwoerter passen zu den Uebungsdokumenten in
-04-rag-and-knowledge/data/.
+data/ (Projektwurzel).
 """
 
 from __future__ import annotations
@@ -21,7 +21,9 @@ from typing import List
 
 from langchain_core.embeddings import Embeddings
 
-from lernakademie.config import PROVIDER_MISTRAL, PROVIDER_OFFLINE, PROVIDER_OPENAI, get_provider
+from lernakademie.config import (  # noqa: F401  (PROVIDER_* fuer Lesbarkeit re-exportiert)
+    PROVIDER_MISTRAL, PROVIDER_OFFLINE, PROVIDER_OPENAI, get_provider,
+)
 
 # Jedes Thema bekommt eine feste Dimension im Vektor.
 KEYWORDS: List[str] = [

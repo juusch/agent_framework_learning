@@ -4,8 +4,6 @@ Alle Tests laufen OHNE echten Server – offline bzw. mit gemockten
 Verbindungen (CI-faehig).
 """
 
-import os
-
 import pytest
 
 # Sicherstellen, dass keine echte .env die Tests verfaelscht:

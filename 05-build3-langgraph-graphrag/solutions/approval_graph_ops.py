@@ -6,13 +6,12 @@ SCHREIBEN nur nach menschlicher Freigabe (interrupt + resume).
 
 import sys
 from pathlib import Path
-from typing import Annotated, TypedDict
+from typing import TypedDict
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, START, StateGraph
-from langgraph.graph.message import add_messages
 from langgraph.types import Command, interrupt
 
 from lernakademie.graph_store import GraphStore

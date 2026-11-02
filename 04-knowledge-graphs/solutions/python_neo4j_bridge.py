@@ -60,7 +60,7 @@ def lade_firmen_graph_neo4j(session) -> None:
 
 def frage_neo4j(session, cypher: str, **parameter):
     """Parametrisierte Abfrage, Ergebnis als Liste von Dicts."""
-    return [dict(datensatz) for datensatz in session.run(cypher, **parameters)]
+    return [dict(datensatz) for datensatz in session.run(cypher, **parameter)]
 
 
 def frage_fallback(store, cypher: str):

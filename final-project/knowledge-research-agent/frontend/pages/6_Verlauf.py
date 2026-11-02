@@ -10,8 +10,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from api_config import API_URL
 
-from api_config import API_URL
-
 st.title("📜 Ausführungshistorie")
 st.caption("Der Verlauf lebt im Backend (Stufe 15.3-Konzept) – hier "
            "liest du nach, welche Route der Agent wählte und woher "

@@ -29,7 +29,7 @@ graph = antwort.json()
 
 # ---- Interaktive Visualisierung (PyVis -> HTML-Embed) ----------------------
 html = baue_pyvis_html(graph["nodes"], graph["edges"])
-st.components.v1.html(html, height=520, scrolling=False)
+st.iframe(html, height=520)  # st.components.v1.html ist abgekündigt
 
 # ---- Suche + Detail-Ansicht ------------------------------------------------
 st.subheader("Entity-Suche und Inspektion")

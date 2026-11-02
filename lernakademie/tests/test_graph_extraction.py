@@ -6,11 +6,10 @@ os.environ.setdefault("ACADEMY_OFFLINE", "1")
 
 import pytest
 
-from lernakademie.graph_extraction import (
-    Extraktion, extrahiere, extrahiere_offline, fuelle_graph,
-    ist_sicher, fuehre_sicher_aus, cypher_aus_frage,
-)
 from lernakademie.graph_store import GraphStore
+from lernakademie.graph_extraction import (
+    extrahiere, fuelle_graph, ist_sicher, fuehre_sicher_aus, cypher_aus_frage,
+)
 
 
 def test_offline_extraktion():

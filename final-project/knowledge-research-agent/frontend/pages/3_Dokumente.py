@@ -10,8 +10,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from api_config import API_URL
 
-from api_config import API_URL
-
 st.title("📄 Dokumente & RAG")
 st.caption("Hochgeladene Texte landen im Vektor-Index – der Agent findet "
            "danach sinngleiche Stellen (Stufe 4/13).")

@@ -13,7 +13,7 @@ from langchain_chroma import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from lernakademie.graph_store import GraphStore
-from lernakademie.offline_embeddings import get_embeddings, hat_bezug
+from lernakademie.offline_embeddings import get_embeddings
 
 DATA = Path(__file__).resolve().parents[2] / "data" / "firmenprofil.md"
 

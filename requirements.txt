@@ -9,6 +9,7 @@ langchain-mistralai>=1.0,<2.0
 langchain-openai>=1.0,<2.0   # OpenAI-kompatible Endpoints (lokale Server & Cloud)
 langchain-chroma>=1.0,<2.0
 langchain-text-splitters>=1.0,<2.0
+langchain-community>=0.4,<1.0  # TextLoader (Dokumente laden)
 langgraph>=1.0,<2.0
 
 # Direkter Mistral-API-Zugriff (Stufe 2)

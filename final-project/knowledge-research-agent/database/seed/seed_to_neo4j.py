@@ -8,8 +8,6 @@ Aufruf (vom Akademie-Hauptordner):
     python "final-project/knowledge-research-agent/database/seed/seed_to_neo4j.py"
 """
 
-from pathlib import Path
-
 from neo4j import GraphDatabase
 
 STATEMENTS = [

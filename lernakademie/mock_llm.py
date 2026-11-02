@@ -14,16 +14,15 @@ echtes Chat-Modell (gleiche Runnable-Schnittstelle: .invoke, |, bind etc.).
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence  # noqa: F401
 
-from langchain_core.callbacks import CallbackManagerForLLMRun
+from langchain_core.callbacks import CallbackManagerForLLMRun  # noqa: F401  (Typ-Hint der _generate-Signatur)
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.messages import AIMessage, BaseMessage, ToolMessage
 from langchain_core.outputs import ChatGeneration, ChatResult
 from langchain_core.runnables import RunnableLambda
 from pydantic import BaseModel, PrivateAttr
 
-from lernakademie.config import is_offline_mode
 
 OFFLINE_PREFIX = "[OFFLINE]"
 

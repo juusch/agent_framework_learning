@@ -4,7 +4,7 @@ import os
 
 os.environ.setdefault("ACADEMY_OFFLINE", "1")
 
-from lernakademie.graph_store import GraphStore, baue_beispiel_graph
+from lernakademie.graph_store import baue_beispiel_graph
 
 
 def test_nodes_und_beziehungen():

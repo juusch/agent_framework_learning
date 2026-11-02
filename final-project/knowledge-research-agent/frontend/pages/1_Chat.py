@@ -10,8 +10,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from api_config import API_URL
 
-from api_config import API_URL
-
 st.title("💬 Chat mit dem Agenten")
 st.caption("Der Agent klassifiziert deine Frage und waehlt die "
            "Retrieval-Route: Vektor (Dokumente), Graph (Beziehungen) oder Hybrid.")
