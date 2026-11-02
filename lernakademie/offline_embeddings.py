@@ -30,6 +30,9 @@ KEYWORDS: List[str] = [
     "passwort", "passwoerter", "vpn", "laptop", "drucker", "software", "internet",
     "termin", "meeting", "e-mail", "urlaubsantrag",
     "python", "ki", "api",
+    # Begriffe fuer das GraphRAG-Firmenprofil (Stufe 13):
+    "engineering", "analytics", "abteilung", "projekt", "assistant",
+    "ben", "clara", "weiterbildung", "nutzungsanalyse", "abteilungen",
 ]
 
 
