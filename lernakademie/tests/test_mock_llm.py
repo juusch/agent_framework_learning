@@ -51,7 +51,8 @@ def test_structured_output_offline():
     structured = model.with_structured_output(RezeptIdee)
     result = structured.invoke("Pasta mit Tomaten!")
     assert isinstance(result, RezeptIdee)
-    assert result.dauer_minuten == 0
+    assert result.dauer_minuten == 1
+    assert result.zutaten == []
     assert OFFLINE_PREFIX in result.titel
 
 
