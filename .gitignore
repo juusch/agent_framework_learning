@@ -1,0 +1,25 @@
+# Umgebungsvariablen und Geheimnisse
+.env
+*.env
+!*.env.example
+
+# Virtuelle Umgebung
+.venv/
+venv/
+
+# Python-Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Vektor-Datenbanken (lokal erzeugt)
+vector_store/
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db

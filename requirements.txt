@@ -1,0 +1,24 @@
+# Abhängigkeiten der Lernakademie
+# Pinning-Strategie: Hauptversionen von LangChain 1.x / LangGraph 1.x.
+# Upgrades: `pip install -U langchain langchain-mistralai langgraph` und Tests laufen lassen.
+
+# LLM & LangChain-Ökosystem
+langchain>=1.0,<2.0
+langchain-core>=1.0,<2.0
+langchain-mistralai>=1.0,<2.0
+langchain-chroma>=1.0,<2.0
+langchain-text-splitters>=1.0,<2.0
+langgraph>=1.0,<2.0
+
+# Direkter Mistral-API-Zugriff (Stufe 2)
+mistralai>=3.0,<4.0
+
+# Daten & Konfiguration
+pydantic>=2.0,<3.0
+python-dotenv>=1.0,<2.0
+
+# Lern-Extras
+rich>=13.0,<14.0        # hübsche, farbige Terminal-Ausgaben
+
+# Tests
+pytest>=8.0
