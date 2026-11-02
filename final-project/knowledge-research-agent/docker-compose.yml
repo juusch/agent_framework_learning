@@ -1,0 +1,61 @@
+# Capstone: Personal Knowledge & Research Agent
+#
+# Start:   docker compose up --build
+# Frontend: http://localhost:8501
+# Backend:  http://localhost:8000/docs
+# Neo4j:    http://localhost:7474  (Login: neo4j / lernakademie)
+#
+# Hinweis: Backend und Frontend laufen auch OHNE laufendes Neo4j
+# (GraphStore-Fallback). Neo4j ist fuer Stufe-11-Experimente optional.
+
+services:
+  neo4j:
+    image: neo4j:5
+    container_name: akademie-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/lernakademie
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j-daten:/data
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  backend:
+    build:
+      context: ../..
+      dockerfile: final-project/knowledge-research-agent/backend/Dockerfile
+    container_name: akademie-backend
+    environment:
+      # Offline-Modus per Default; mit echtem Key in .env override setzen
+      ACADEMY_OFFLINE: "${ACADEMY_OFFLINE:-1}"
+      MISTRAL_API_KEY: "${MISTRAL_API_KEY:-}"
+      ACADEMY_MODEL: "${ACADEMY_MODEL:-mistral-small-latest}"
+    ports:
+      - "8000:8000"
+    command: uvicorn backend.api.main:app --host 0.0.0.0 --port 8000
+    working_dir: /app/final-project/knowledge-research-agent
+    depends_on:
+      neo4j:
+        condition: service_started
+
+  frontend:
+    build:
+      context: ../..
+      dockerfile: final-project/knowledge-research-agent/backend/Dockerfile
+    container_name: akademie-frontend
+    environment:
+      API_URL: http://backend:8000
+    ports:
+      - "8501:8501"
+    command: streamlit run frontend/app.py --server.address 0.0.0.0 --server.port 8501
+    working_dir: /app/final-project/knowledge-research-agent
+    depends_on:
+      - backend
+
+volumes:
+  neo4j-daten:

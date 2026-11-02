@@ -24,4 +24,6 @@ jobs:
       - name: Tests ausfuehren (offline)
         env:
           ACADEMY_OFFLINE: "1"
-        run: pytest
+        run: |
+          pytest
+          pytest "final-project/knowledge-research-agent/tests"

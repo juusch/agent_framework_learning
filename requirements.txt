@@ -20,5 +20,12 @@ python-dotenv>=1.0,<2.0
 # Lern-Extras
 rich>=13.0,<14.0        # hübsche, farbige Terminal-Ausgaben
 
+# Knowledge Graphs (Stufe 10-14) & Frontend (Stufe 15 / Capstone)
+neo4j>=5.0,<6.0         # Graph-Datenbank-Treiber
+fastapi>=0.110          # Backend-API (Capstone)
+uvicorn>=0.29           # ASGI-Server fuer FastAPI
+streamlit>=1.35         # Frontend (reines Python, kein JS)
+pyvis>=0.3.2            # interaktive Graph-Visualisierung (Streamlit-Embed)
+
 # Tests
 pytest>=8.0
