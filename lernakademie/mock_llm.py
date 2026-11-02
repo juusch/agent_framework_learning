@@ -95,8 +95,10 @@ class MockChatModel(BaseChatModel):
             for name, field in schema.model_fields.items():
                 annotation = field.annotation
 
-                if annotation is int or annotation is float:
-                    fields[name] = 0
+                if annotation is int:
+                    fields[name] = 1
+                elif annotation is float:
+                    fields[name] = 1.0
                 elif _is_list_annotation(annotation):
                     fields[name] = []
                 elif annotation is str:
