@@ -76,7 +76,7 @@ def test_offline_embeddings_similarity():
 def test_mock_tool_calling_react_agent():
     """Der Offline-Mock simuliert Tool-Calling so, dass create_react_agent funktioniert."""
     from langchain_core.tools import tool
-    from langgraph.prebuilt import create_react_agent
+    from langchain.agents import create_agent
     from lernakademie.mock_llm import get_chat_model
 
     @tool
@@ -84,14 +84,14 @@ def test_mock_tool_calling_react_agent():
         """Zaehlt die Woerter eines Texts."""
         return f"Der Text enthaelt {len(text.split())} Woerter."
 
-    agent = create_react_agent(
+    agent = create_agent(
         model=get_chat_model(),
         tools=[wortzaehler],
-        prompt="Du bist ein Zaehlassistent.",
+        system_prompt="Du bist ein Zaehlassistent.",
     )
     ergebnis = agent.invoke(
         {"messages": [{"role": "user", "content": "Bitte nutze den wortzaehler fuer diesen Satz"}]}
     )
     letzte = ergebnis["messages"][-1]
     assert "Tool-Ergebnisse" in letzte.content
-    assert "7 Woertern" in letzte.content
+    assert "7 Woerter." in letzte.content
