@@ -13,14 +13,15 @@ echtes Chat-Modell (gleiche Runnable-Schnittstelle: .invoke, |, bind etc.).
 
 from __future__ import annotations
 
-from typing import Any, List, Sequence
+import re
+from typing import Any, Dict, List, Optional, Sequence
 
 from langchain_core.callbacks import CallbackManagerForLLMRun
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.messages import AIMessage, BaseMessage
+from langchain_core.messages import AIMessage, BaseMessage, ToolMessage
 from langchain_core.outputs import ChatGeneration, ChatResult
 from langchain_core.runnables import RunnableLambda
-from pydantic import BaseModel
+from pydantic import BaseModel, PrivateAttr
 
 from lernakademie.config import get_model_name, has_mistral_key, is_offline_mode
 
@@ -57,16 +58,89 @@ def _mock_answer_text(messages: Sequence[BaseMessage]) -> str:
     )
 
 
+def _normalize_for_match(text: str) -> str:
+    """Vergleichstext: klein, Unterstriche/Minus als Leerzeichen, Umlaute normalisiert."""
+    lowered = text.lower().replace("_", " ").replace("-", " ")
+    for original, replacement in (("ü", "ue"), ("ä", "ae"), ("ö", "oe"), ("ß", "ss")):
+        lowered = lowered.replace(original, replacement)
+    return lowered
+
+
+def _tool_name(werkzeug: Any) -> str:
+    """Name eines Tools (BaseTool oder schlichte Funktion)."""
+    name = getattr(werkzeug, "name", None) or getattr(werkzeug, "__name__", None)
+    if not name:
+        raise ValueError("Tool ohne Namen an bind_tools uebergeben.")
+    return name
+
+
+def _tool_parameter(werkzeug: Any) -> Dict[str, Any]:
+    """Parameter-Schema eines Tools als {name: beschreibung} (Beschreibung optional leer)."""
+    args = getattr(werkzeug, "args", None)
+    if isinstance(args, dict):
+        return {
+            name: (info.get("description", "") if isinstance(info, dict) else "")
+            for name, info in args.items()
+        }
+    import inspect
+
+    return {name: "" for name in inspect.signature(werkzeug).parameters}
+
+
+def _baue_tool_args(werkzeug: Any, user_text: str) -> Dict[str, Any]:
+    """Fuellt die Tool-Argumente heuristisch fuer die Offline-Simulation.
+
+    Mathematische Ausdruecke werden fuer Parameter erkannt, deren Name auf
+    'expression'/'rechnung'/'formel'/'aufgabe' lautet; alle anderen Parameter
+    erhalten den Nutzettext (uebliche Faelle: query, text, frage, ...).
+    """
+    args: Dict[str, Any] = {}
+    for name in _tool_parameter(werkzeug):
+        if name.lower() in ("expression", "rechnung", "formel", "aufgabe"):
+            match = re.search(r"[-+*/().\d\s]+", user_text)
+            args[name] = (match.group(0).strip() if match else user_text).strip()
+        else:
+            args[name] = user_text
+    return args
+
+
+def _finde_passendes_tool(messages: Sequence[BaseMessage], werkzeuge) -> Optional[Any]:
+    """Waehlt das Tool, dessen Name im Nutzertext vorkommt."""
+    user_text = _normalize_for_match(_extract_last_user_text(messages))
+    if not user_text:
+        return None
+    for werkzeug in werkzeuge:
+        name = _normalize_for_match(_tool_name(werkzeug))
+        if name and name in user_text:
+            return werkzeug
+    return None
+
+
 class MockChatModel(BaseChatModel):
     """Offline-Stand-In fuer ein LangChain-Chat-Modell.
 
     Verhaelt sich in Chains wie ein echtes Modell, liefert aber
     deterministische, klar markierte Platzhalter-Antworten.
+
+    Zusaetzlich simuliert es einfaches TOOL CALLING:
+    - bind_tools(tools) merkt sich die Tools.
+    - Enthaelt der Nutzertext einen Tool-Namen, liefert das Modell einen
+      passenden tool_call (damit laufen auch Agenten-Loops offline).
+    - Liegt bereits ein ToolMessage-Ergebnis vor, wird eine finale
+      Antwort formuliert (der Agent-Loop endet).
     """
+
+    _tools: List[Any] = PrivateAttr(default_factory=list)
 
     @property
     def _llm_type(self) -> str:
         return "lernakademie-offline-model"
+
+    def bind_tools(self, tools: Any, **kwargs: Any) -> "MockChatModel":
+        """Merkt sich die Tools fuer die Offline-Tool-Call-Simulation."""
+        gebunden = MockChatModel()
+        gebunden._tools = list(tools)
+        return gebunden
 
     def _generate(
         self,
@@ -75,6 +149,34 @@ class MockChatModel(BaseChatModel):
         run_manager: Any = None,
         **kwargs: Any,
     ) -> ChatResult:
+        # Fall 1: Ein Tool hat bereits geliefert -> finale Antwort formulieren
+        tool_nachrichten = [m for m in messages if isinstance(m, ToolMessage)]
+        if tool_nachrichten:
+            inhalt = str(tool_nachrichten[-1].content)
+            if len(inhalt) > _MAX_ECHO_CHARS:
+                inhalt = inhalt[:_MAX_ECHO_CHARS] + " ..."
+            message = AIMessage(
+                content=f"{OFFLINE_PREFIX} Finale Antwort auf Basis der "
+                f"Tool-Ergebnisse: {inhalt}"
+            )
+            return ChatResult(generations=[ChatGeneration(message=message)])
+
+        # Fall 2: Tools gebunden und Treffer im Nutzertext -> tool_call simulieren
+        if self._tools:
+            werkzeug = _finde_passendes_tool(messages, self._tools)
+            if werkzeug is not None:
+                message = AIMessage(
+                    content="",
+                    tool_calls=[{
+                        "name": _tool_name(werkzeug),
+                        "args": _baue_tool_args(werkzeug, _extract_last_user_text(messages)),
+                        "id": "tool_call_offline_1",
+                        "type": "tool_call",
+                    }],
+                )
+                return ChatResult(generations=[ChatGeneration(message=message)])
+
+        # Fall 3: normale Platzhalter-Antwort
         message = AIMessage(content=_mock_answer_text(messages))
         return ChatResult(generations=[ChatGeneration(message=message)])
 
