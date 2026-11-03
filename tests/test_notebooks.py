@@ -7,8 +7,6 @@ Unterscheidet klar (Anforderung 'nicht schummeln'):
   bewusst NICHT funktionieren – das ist der Sinn des Arbeitsblatts).
 """
 
-import re
-import sys
 from pathlib import Path
 
 import nbformat

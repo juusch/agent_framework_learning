@@ -97,8 +97,8 @@ print(taschenrechner.invoke({"expression": "12 / 0"}))    # abgefangen'''),
                 "Baue einen Agenten mit beiden Tools und stelle eine Frage, die das Uhrzeit-Tool auslöst.",
             ],
             "starter": '''\
-from datetime import datetime
-import random
+from datetime import datetime   # brauchst du fuer die Uhrzeit
+import random                   # brauchst du fuer die Zufallszahl
 
 @tool
 def uhrzeit() -> str:
@@ -260,7 +260,8 @@ config1 = {"configurable": {"thread_id": "gespraech-1"}}
 config_f = {"configurable": {"thread_id": "freigabe"}}
 lauf = agent.invoke({"messages": [HumanMessage(
     content="Lege bitte die geheime Notiz 'Gehaltsliste' an.")]}, config_f)
-# YOUR CODE HERE: Interrupt-Daten lesen + resume=True
+# YOUR CODE HERE: Interrupt-Daten aus lauf["__interrupt__"] lesen,
+# dann fortsetzen mit: agent.invoke(Command(resume=True), config_f)
 
 print("Notizen:", NOTIZEN)''',
             "kriterien": [

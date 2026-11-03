@@ -567,7 +567,7 @@ NB_06 = {
                "**Metapher:** Ein Schuppen ist schnell gezimmert. Aber jeder Anbau bedeutet: "
                "Werkzeug nachkaufen, Pläne anpassen, alles neu prüfen. Irgendwann sehnst du dich nach einem System, das mitwächst."),
         ("code", '''\
-from lernakademie.build1 import lade_dokumente, suche_relevant, baue_prompt, beantworte
+from lernakademie.build1 import lade_dokumente, beantworte
 
 # Der Firmenprofil-Abschnitt ist bereits dabei (data/ enthaelt drei Dateien):
 abschnitte = lade_dokumente()

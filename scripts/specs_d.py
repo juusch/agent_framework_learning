@@ -218,7 +218,7 @@ for verboten in ("CREATE (n:Person {name: 'Boesewicht'})",
         ("md", "## Python ↔ Neo4j: die Brücke (mit Fallback)\n\n"
                "Die Brücke probiert echtes Neo4j; ist es nicht erreichbar, läuft derselbe Code gegen den Fallback:"),
         ("code", '''\
-from lernakademie.graph_store import GraphStore
+from lernakademie.graph_store import baue_beispiel_graph
 
 NEO4J_URI = "bolt://localhost:7687"
 NEO4J_USER = "neo4j"
@@ -341,7 +341,7 @@ NB_12 = {
                "**WAS:** Das LLM hält statt einer freien Zusammenfassung ein **Formular** (Pydantic, Lektion 09!): "
                "`entitaeten` (Name + Label) und `beziehungen` (von, Typ, zu). **Das LLM schlägt vor – Python entscheidet.**"),
         ("code", '''\
-from lernakademie.graph_extraction import extrahiere, Extraktion
+from lernakademie.graph_extraction import extrahiere
 
 TEXT = ("Anna arbeitet bei Acme und gehoert zu Engineering. "
         "Ben arbeitet bei Acme. Engineering arbeitet an AI Assistant.")
