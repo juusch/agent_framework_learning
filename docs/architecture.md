@@ -6,15 +6,23 @@ Diese Seite erklärt, **wie das Repository aufgebaut ist** und wie die technisch
 
 ```
 lernakademie/
-├── README.md / START_HERE.md / PROGRESS.md
+├── README.md                    # Navigation -> START_HERE.ipynb
+├── START_HERE.ipynb               # Einstieg: Setup, Jupyter-Basics, erste Aufgabe
+├── PROGRESS.md                    # Checkliste (Notebook-Nummern)
 ├── requirements.txt / pyproject.toml / .env.example
-├── docs/                 # Roadmap, Glossar, Troubleshooting, Vergleichs-Doc
-├── data/                 # gemeinsam genutzte Wissensdokumente (alle Builds!)
-├── lernakademie/          # Hilfs-Paket: Offline-Modus, Mock-LLM (inkl. Tool-Calling),
-│                          # GraphStore (Neo4j-Pendant + Mini-Cypher), Graph-Extraktion
-├── 00-setup/ ... 08-testing-und-produktion/   # 9 Module, je README + tasks/ + solutions/
-├── final-project/knowledge-research-agent/    # Capstone: FastAPI + Streamlit + Docker
-└── tests/                # Akademie-Tests (offline, CI-faehig)
+├── notebooks/                     # 20 Lektionen in 11 Modul-Ordnern
+│   ├── 01_python/ … 11_testing/
+├── solutions/                     # 20 ausgefuehrte Loesungs-Notebooks
+├── lernakademie/                  # zentrale Module: config, llm_client (Provider),
+│   │                              # build1/build2 (Pipelines), graph_store (Neo4j-Pendant),
+│   │                              # graph_extraction, mock_llm, offline_embeddings
+├── frontend/                      # build1_chat.py (Lektion 06)
+├── final-project/knowledge-research-agent/   # Capstone: FastAPI + Streamlit + Docker
+├── data/                          # Wissensdokumente (alle Builds & Finale)
+├── scripts/                       # Notebook-Baukasten (nbkit + Specs + build)
+├── tests/                         # Akademie-Tests inkl. test_notebooks.py
+├── tools/                         # test_llm_connection.py
+└── docs/                          # Roadmap, Notebook-Guide, Glossar, Vergleich …
 ```
 
 ## Das Hilfs-Paket `lernakademie/`

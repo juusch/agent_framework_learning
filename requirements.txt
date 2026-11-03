@@ -31,3 +31,9 @@ pyvis>=0.3.2            # interaktive Graph-Visualisierung (Streamlit-Embed)
 
 # Tests
 pytest>=8.0
+
+# Jupyter-Notebooks (Lernumgebung)
+jupyterlab>=4.0
+ipykernel>=6.0
+nbformat>=5.9
+nbclient>=0.10

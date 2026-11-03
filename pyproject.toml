@@ -26,7 +26,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0"]
+dev = ["pytest>=8.0", "nbformat>=5.9", "nbclient>=0.10"]
 
 [tool.pytest.ini_options]
 testpaths = ["lernakademie/tests", "tests"]

@@ -12,7 +12,7 @@ Der komplette Lernpfad ist offline lauffähig und getestet; die Anmerkungen unte
 |---|---|---|---|---|
 | Akademie (`tests/`, `lernakademie/tests/`) | 46 | 46 | 0 | 0 |
 | Capstone (`final-project/.../tests/`) | 12 | 12 | 0 | 0 |
-| **Gesamt** | **58** | **58** | **0** | **0** |
+| **Gesamt** | **113** | **113** | **0** | **0** |
 
 Alle Tests laufen **offline** (Offline-Modus, keine Keys, keine Kosten) – identisch zur CI-Konfiguration. Statische Prüfung (ruff, F401/F811/F821): **All checks passed**.
 
@@ -36,6 +36,7 @@ Alle Tests laufen **offline** (Offline-Modus, keine Keys, keine Kosten) – iden
 | **Konfigurierbare KI (Provider-Layer)** | PASS – verifiziert mit **gemocktem OpenAI-kompatiblen Endpoint** (Mini-FastAPI-Server): Verbindungstest + komplette LangChain-Chain liefen durch die Abstraktion; 16 Konfigurationstests (Auto-Erkennung, fehlende Base-URL/Modell → klare Fehler, optionaler Key, Maskierung, Connection-Failure-Hinweise) | `tests/test_llm_config.py` + manueller E2E-Test |
 | **Mistral (echt, mit Key)** | NOT TESTED – in dieser Umgebung lag kein API-Key vor. Integration folgt der offiziellen `langchain-mistralai`-API (1.1.6); der Weg dorthin ist dokumentiert und der Offline-Pfad identisch. | – |
 | **Frontend** | PASS – headless getestet gegen laufendes Backend (Chat, Sidebar-Status ohne Secrets, Graph-Explorer, Dokumente, Freigabe-Roundtrip, Verlauf). Manueller Browser-Klicktest: siehe Known Limitations. | Streamlit `AppTest`-Läufe in diesem Audit |
+| **Notebooks (zentrales Lernformat)** | PASS – 21 Lern-Notebooks + 20 Lösungs-Notebooks; alle 20 Lösungen **vollständig von frischen Kernels ausgeführt** (offline); 67 Notebook-Tests (Struktur, Syntax, Lernpfad, Workspace- & Prüfzellen) grün | erzeugt & validiert via `scripts/build_notebooks.py` + `tests/test_notebooks.py` |
 | **Capstone (End-to-End)** | PASS – Frontend → Backend → LangGraph → Vektor+Graph → Antwort → Frontend vollständig durchlaufen (offline, deterministische Seed-Daten) | AppTest-Suite + 12 API-Tests |
 | **Offline-Tests** | PASS – der **gesamte** Testbaum (58) läuft ohne einen Key, ohne Server, ohne Kosten | CI-Konfiguration |
 | **CI (GitHub Actions)** | PASS (lokal verifiziert: alle CI-Schritte einzeln ausgeführt: pip-Install, beide pytest-Suiten, ruff, Import-Check) – der Workflow wurde um ruff + Import-Check erweitert | `.github/workflows/tests.yml` |

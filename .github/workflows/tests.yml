@@ -21,17 +21,17 @@ jobs:
 
       # Alle Tests laufen bewusst im OFFLINE-Modus: keine API-Calls,
       # keine Kosten, keine Geheimnisse in CI.
-      - name: Tests ausfuehren (offline)
+      - name: Tests ausfuehren (offline, inkl. Notebook-Validierung)
         env:
           ACADEMY_OFFLINE: "1"
         run: |
           pytest
           pytest "final-project/knowledge-research-agent/tests"
 
-      - name: Statische Pruefung (ruff: ungenutzte/undefinierte Imports)
+      - name: Statische Pruefung (ruff)
         run: ruff check --select F401,F811,F821 .
 
-      - name: Import-Check (Projekt als Paket importierbar?)
+      - name: Import-Check
         env:
           ACADEMY_OFFLINE: "1"
         run: python -c "import lernakademie; from lernakademie.llm_client import get_chat_model; get_chat_model()"
